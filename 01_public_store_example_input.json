@@ -1,0 +1,61 @@
+{
+  "startUrls": [
+    {
+      "url": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450"
+    }
+  ],
+  "collectionMode": "limit",
+  "maxReviewsPerHotel": 60,
+  "sort": "entrydate",
+  "resumeFromCheckpoint": false,
+  "deduplicateAcrossRuns": false,
+  "resetState": true,
+  "includeAspectScores": true,
+  "includeAiAspectScores": false,
+  "includeTrendIntelligence": false,
+  "includeAnomalySignals": true,
+  "includeReviewerDetails": false,
+  "includeOwnerResponses": true,
+  "includeCompetitorSet": false,
+  "includePriceIntelligence": false,
+  "includeManagementReport": true,
+  "reportLanguage": "de",
+  "notificationMode": "alerts",
+  "translateToEnglish": false,
+  "proxyConfiguration": {
+    "useApifyProxy": false
+  },
+  "stateStoreName": "holidaycheck-review-intelligence-state",
+  "aiAspectModel": "gpt-5.6-luna",
+  "aiAspectBatchSize": 10,
+  "aiAspectMaxConcurrency": 2,
+  "ignoreAiAspectErrors": true,
+  "includeRawContributions": false,
+  "competitorLimit": 5,
+  "competitorStarTolerance": 1,
+  "priceSearch": {
+    "adults": 2,
+    "childrenAges": [],
+    "rooms": 1,
+    "currency": "EUR",
+    "offerType": "hotelonly",
+    "departureAirports": [],
+    "boardTypes": []
+  },
+  "priceBandTolerancePercent": 15,
+  "alertAspectDeclineThreshold": 0.15,
+  "alertMinimumReviewCount": 3,
+  "ignoreNotificationErrors": true,
+  "translationModel": "gpt-5.6-luna",
+  "translationBatchSize": 10,
+  "translationMaxConcurrency": 2,
+  "ignoreTranslationErrors": true,
+  "aiMaxRequests": 1000,
+  "aiMaxInputTokens": 5000000,
+  "useAiCache": true,
+  "maxConcurrency": 3,
+  "maxRequestRetries": 3,
+  "requestTimeoutSecs": 30,
+  "ignoreUrlErrors": true
+}
+

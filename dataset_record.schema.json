@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Normalized HolidayCheck review record",
+  "description": "Current Actor dataset contract for one normalized public review row. Nested analytics objects can evolve while the top-level fields remain stable.",
+  "type": "object",
+  "properties": {
+    "reviewId": {
+      "type": "string",
+      "description": "HolidayCheck review identifier."
+    },
+    "hotelId": {
+      "type": "string",
+      "description": "HolidayCheck hotel identifier."
+    },
+    "hotelName": {
+      "type": "string"
+    },
+    "reviewUrl": {
+      "type": "string"
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "overallRating": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Overall review rating normalized to the HolidayCheck 1-10 display scale."
+    },
+    "recommendation": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "verifiedReservation": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Source-reported verified-reservation flag. It is not independently verified by the Actor."
+    },
+    "entryDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "travelDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "travelerType": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "originalLanguage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "returnedLanguage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hotel": {
+      "type": "object"
+    },
+    "reviewer": {
+      "type": "object"
+    },
+    "ownerResponse": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "topics": {
+      "type": "array"
+    },
+    "nativeRatings": {
+      "type": "object"
+    },
+    "aspectScores": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Deterministic aspect scores derived from native rating and topic signals."
+    },
+    "aiAspectScores": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Optional full-text AI scores with exact-substring evidence."
+    },
+    "aiAspectError": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hybridAspectScores": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Final per-aspect score combining available native and AI evidence."
+    },
+    "anomalySignals": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Observable pattern metrics for investigation, not a fake-review verdict."
+    },
+    "translation": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Optional English translation, its status, and the model used."
+    },
+    "competitorSetRef": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Hotel ID used to locate this hotel's set in the COMPETITOR_SETS key-value record."
+    },
+    "rawContributions": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "sourceUrl": {
+      "type": "string"
+    },
+    "scrapedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "reviewId",
+    "hotelId",
+    "hotelName",
+    "reviewUrl",
+    "hotel",
+    "reviewer",
+    "topics",
+    "nativeRatings",
+    "sourceUrl",
+    "scrapedAt"
+  ]
+}
+

@@ -1,0 +1,110 @@
+{
+  "reviewId": "adbdd5b3-e748-4b04-83f1-13ef1838c341",
+  "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+  "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+  "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-adbdd5b3-e748-4b04-83f1-13ef1838c341",
+  "title": "[redacted for public sample]",
+  "text": null,
+  "overallRating": 10,
+  "recommendation": true,
+  "verifiedReservation": false,
+  "entryDate": "2026-07-22T17:24:19.000Z",
+  "travelDate": "2026-07",
+  "travelerType": "FRIENDS",
+  "originalLanguage": "de",
+  "returnedLanguage": "de",
+  "hotel": {
+    "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "name": "Pickalbatros Dana Beach Resort - Hurghada",
+    "stars": 5,
+    "rating6": 5.657160703601454,
+    "recommendationRate": 96.11,
+    "reviewCount": 28225,
+    "city": "Hurghada",
+    "region": "Hurghada/Safaga",
+    "country": "Egypt"
+  },
+  "reviewer": {
+    "hotelReviewCount": 1
+  },
+  "topics": [
+    {
+      "id": "ANIMATION",
+      "name": "Animation",
+      "sentiment": 1
+    },
+    {
+      "id": "FOOD",
+      "name": "Restaurants and bars",
+      "sentiment": 1
+    },
+    {
+      "id": "SERVICE",
+      "name": "Service",
+      "sentiment": 1
+    }
+  ],
+  "nativeRatings": {
+    "RATING": {
+      "label": "Rating",
+      "sourceScore": 1,
+      "rating10": 10
+    },
+    "PRICE_PERFORMANCE": {
+      "label": "Value",
+      "sourceScore": 1,
+      "rating10": 10
+    }
+  },
+  "aspectScores": {
+    "service": {
+      "score": 1,
+      "label": "positive",
+      "confidence": "low",
+      "signalCount": 1,
+      "sourceSignals": [],
+      "evidence": []
+    },
+    "foodAndBeverage": {
+      "score": 1,
+      "label": "positive",
+      "confidence": "medium",
+      "signalCount": 2,
+      "sourceSignals": [],
+      "evidence": []
+    },
+    "value": {
+      "score": 1,
+      "label": "positive",
+      "confidence": "low",
+      "signalCount": 1,
+      "sourceSignals": [],
+      "evidence": []
+    }
+  },
+  "aiAspectScores": null,
+  "aiAspectError": null,
+  "anomalySignals": {
+    "signalVersion": "observable-v2",
+    "verifiedReservation": false,
+    "reviewerHotelReviewCount": 1,
+    "singleReviewProfile": true,
+    "sameDayReviewCountInRun": 9,
+    "sameRatingRunLength": 2,
+    "loadedHotelSampleSize": 60,
+    "burst": {
+      "currentDayCount": 9,
+      "baselineDays": 90,
+      "baselineMean": 0.34,
+      "baselineStdDev": 1.06,
+      "zScore": 8.2,
+      "status": "elevated"
+    }
+  },
+  "translation": null,
+  "competitorSetRef": null,
+  "rawContributions": null,
+  "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+  "scrapedAt": "2026-07-28T12:54:52.805Z"
+}
+
