@@ -3,7 +3,7 @@
 # HolidayCheck Review Intelligence Sample
 
 [![Actor](https://img.shields.io/badge/Apify-Run%20Actor-00a86b)](https://apify.com/kamerozkan/holidaycheck-review-intelligence)
-[![Schema](https://img.shields.io/badge/schema-current%20v0.4.12-2563eb)](dataset_record.schema.json)
+[![Schema](https://img.shields.io/badge/schema-current%20v0.4.15-2563eb)](dataset_record.schema.json)
 [![Source](https://img.shields.io/badge/source-public%20HolidayCheck-f59e0b)](#source-boundaries)
 [![License](https://img.shields.io/badge/license-MIT-111827)](LICENSE)
 
@@ -13,12 +13,13 @@ This is an unofficial, independent Actor. It is not affiliated with, endorsed by
 
 ## Verified live snapshot
 
-Audited on 2026-07-28:
+Sample provenance was audited on 2026-07-28. Current build and runtime status were refreshed on 2026-08-02:
 
 | Check | Verified result |
 | --- | --- |
 | Actor | Public Actor `3ucO50v8A4Gju4EdT` |
-| Current build | `0.4.12` (`m5SpRxn5RHwc9T40A`) |
+| Current build | `0.4.15` (`khLu70Yc5OwFyS0Q9`), succeeded |
+| Current owner smoke | `B2kLOahe0wH0tPZgo`, build `0.4.15`, 1 delivered review row |
 | Latest successful public Task run | `KHUAJkF5fVUqKtd75`, build `0.4.10` |
 | Dataset | `9r8R4Ivo0xSeIrM75` |
 | Collection result | 1 hotel, 6 pages, 60 delivered review rows |
@@ -26,7 +27,7 @@ Audited on 2026-07-28:
 | Health | Healthy, 1/1 hotels completed, no billing-limit interruption |
 | Alert output | 1 review-burst investigation signal, explicitly not a fake-review verdict |
 
-The current `0.4.12` schema matches the files used here. The verified sample rows came from build `0.4.10`; no successful run of the public Task on `0.4.12` was present at audit time.
+The dataset storage schema is unchanged between builds `0.4.12` and `0.4.15`, so it still matches the files used here. The checked-in sample rows came from build `0.4.10`; the separate `0.4.15` owner smoke verified the current build without relabeling those historical rows.
 
 ## Store Example status
 
@@ -267,4 +268,3 @@ curl -X POST \
 ## License
 
 Repository files are available under the [MIT License](LICENSE). Source review content and third-party platform material remain subject to their respective rights and terms.
-
