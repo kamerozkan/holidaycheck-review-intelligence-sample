@@ -3,7 +3,7 @@
 # HolidayCheck Review Intelligence Sample
 
 [![Actor](https://img.shields.io/badge/Apify-Run%20Actor-00a86b)](https://apify.com/kamerozkan/holidaycheck-review-intelligence)
-[![Schema](https://img.shields.io/badge/schema-current%20v0.4.15-2563eb)](dataset_record.schema.json)
+[![Schema](https://img.shields.io/badge/schema-current%20v0.4.17-2563eb)](dataset_record.schema.json)
 [![Source](https://img.shields.io/badge/source-public%20HolidayCheck-f59e0b)](#source-boundaries)
 [![License](https://img.shields.io/badge/license-MIT-111827)](LICENSE)
 
@@ -11,33 +11,27 @@ German-language hotel review data for DACH reputation, operations, and agency wo
 
 This is an unofficial, independent Actor. It is not affiliated with, endorsed by, or supported by HolidayCheck.
 
-## Verified live snapshot
+## Current verification
 
-Sample provenance was audited on 2026-07-28. Current build and runtime status were refreshed on 2026-08-02:
+On September 30, 2026, the German management-report and competitor-benchmark inputs each completed on build `0.4.16`, returning 20 unique reviews with nonempty text and healthy collection status. Both generated German reports in JSON, HTML and plain text. The competitor example returned one set with five candidates; live prices and AI were disabled.
 
-| Check | Verified result |
-| --- | --- |
-| Actor | Public Actor `3ucO50v8A4Gju4EdT` |
-| Current build | `0.4.15` (`khLu70Yc5OwFyS0Q9`), succeeded |
-| Current owner smoke | `B2kLOahe0wH0tPZgo`, build `0.4.15`, 1 delivered review row |
-| Latest successful public Task run | `KHUAJkF5fVUqKtd75`, build `0.4.10` |
-| Dataset | `9r8R4Ivo0xSeIrM75` |
-| Collection result | 1 hotel, 6 pages, 60 delivered review rows |
-| Source flags | 22 source-reported verified reservations, 38 without that flag |
-| Health | Healthy, 1/1 hotels completed, no billing-limit interruption |
-| Alert output | 1 review-burst investigation signal, explicitly not a fake-review verdict |
+Release `0.4.17` changes only the Store README, retaining the same contracts. The German report input was checked again on this release: 20 unique reviews with nonempty text, healthy collection and a generated German report. See [release-verification.json](release-verification.json) and [verification-2026-09-30.json](verification-2026-09-30.json). These are owner tests of capped samples, not customer evidence, full hotel histories or proof that every optional feature works for every hotel. Trends from a new capped sample do not establish long-term changes.
 
-The dataset storage schema is unchanged between builds `0.4.12` and `0.4.15`, so it still matches the files used here. The checked-in sample rows came from build `0.4.10`; the separate `0.4.15` owner smoke verified the current build without relabeling those historical rows.
+The redacted review outputs below retain their original July 28 provenance from run `KHUAJkF5fVUqKtd75`, build `0.4.10`, dataset `9r8R4Ivo0xSeIrM75`. They have not been relabeled as September observations. [dataset_record.schema.json](dataset_record.schema.json) and [input.schema.json](input.schema.json) were refreshed from deployed source `0.4.16`.
 
-## Store Example status
+## Public Store examples
 
-The Store currently exposes exactly one public Example Task:
+Three example tasks are published:
 
-- [Scrape HolidayCheck Reviews, Ratings and Aspects](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/scrape-hotel-reviews-with-ratings)
-- Task ID: `uWMVMfZONIMj5O0pT`
-- Exact saved input: [01_public_store_example_input.json](01_public_store_example_input.json)
+| Use case | Published example | Input |
+| --- | --- | --- |
+| Review export | [Scrape reviews, ratings and aspects](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/scrape-hotel-reviews-with-ratings) | [Original public input](01_public_store_example_input.json) |
+| German reporting | [Create a German hotel review report](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-german-hotel-review-report) | [Report input](04_german_management_report_input.json) |
+| Competitor benchmark | [Compare a hotel with nearby competitors](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/compare-a-hotel-with-nearby-competitors) | [Competitor input](05_competitor_benchmark_input.json) |
 
-The repository also includes one exact owner-side saved Task input and one schema-valid monitoring recipe. They are clearly labeled and are not presented as additional public Store Examples.
+The two new starters use 20 reviews and separate named state stores. Duplicate a task into your own account, replace the hotel URL and choose the result and spending caps. Reports are in the run's key-value store as `MANAGEMENT_REPORT`, `MANAGEMENT_REPORT.html` and `MANAGEMENT_REPORT.txt`.
+
+The repository also includes one historical owner-side saved Task input and a schema-valid monitoring recipe. These remain separately labeled.
 
 ## What the data supports
 

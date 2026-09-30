@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Create a German Hotel Review Report",
+    "url": "https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-german-hotel-review-report",
+    "publishedAt": "2026-09-30T14:34:02.609Z",
+    "runId": "7hddO24Xna0Mt0E32",
+    "build": "0.4.16",
+    "status": "SUCCEEDED",
+    "health": "healthy",
+    "rows": 20,
+    "uniqueRows": 20,
+    "nonemptyReviewTexts": 20,
+    "competitors": 0
+  },
+  {
+    "title": "Compare a Hotel with Nearby Competitors",
+    "url": "https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/compare-a-hotel-with-nearby-competitors",
+    "publishedAt": "2026-09-30T14:34:03.757Z",
+    "runId": "qaZfrhJLawTKHf0Cv",
+    "build": "0.4.16",
+    "status": "SUCCEEDED",
+    "health": "healthy",
+    "rows": 20,
+    "uniqueRows": 20,
+    "nonemptyReviewTexts": 20,
+    "competitors": 5
+  }
+]

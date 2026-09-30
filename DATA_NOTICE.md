@@ -5,6 +5,8 @@ This repository contains product samples, not a bulk review dataset.
 - The first input file is the exact public Store Example Task input available on 2026-07-28.
 - The second input file is an exact owner-side saved Task and is not presented as a public Store Example.
 - The third input file is a repository recipe checked against the current Actor input schema.
+- The fourth and fifth input files are the exact new public Store example inputs verified on September 30, 2026, build 0.4.16.
+- September verification summaries contain counts and status only; no complete review text or report body is published.
 - The output files are based on a successful public Task run and have review text, reviewer identity, owner-response text, and quoted source passages removed or redacted.
 - Public review IDs, hotel identifiers, aggregate hotel metadata, ratings, source flags, and numeric signals are retained only to show the data contract and provenance.
 

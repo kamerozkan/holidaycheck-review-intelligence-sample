@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-09-30",
+  "buildNumber": "0.4.17",
+  "buildId": "MjL6IuWkHiHcL5IaF",
+  "runId": "PnzOZ7W19gDmI9c4e",
+  "status": "SUCCEEDED",
+  "reviews": 20,
+  "uniqueReviews": 20,
+  "nonemptyText": 20,
+  "healthStatus": "healthy",
+  "reportGenerated": true,
+  "reportLanguage": "de",
+  "change": "README only; source, input and dataset contracts unchanged."
+}

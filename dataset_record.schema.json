@@ -1,7 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Normalized HolidayCheck review record",
-  "description": "Current Actor dataset contract for one normalized public review row. Nested analytics objects can evolve while the top-level fields remain stable.",
   "type": "object",
   "properties": {
     "reviewId": {
@@ -47,8 +45,7 @@
       "type": [
         "boolean",
         "null"
-      ],
-      "description": "Source-reported verified-reservation flag. It is not independently verified by the Actor."
+      ]
     },
     "entryDate": {
       "type": [
@@ -103,8 +100,7 @@
       "type": [
         "object",
         "null"
-      ],
-      "description": "Deterministic aspect scores derived from native rating and topic signals."
+      ]
     },
     "aiAspectScores": {
       "type": [
@@ -130,8 +126,7 @@
       "type": [
         "object",
         "null"
-      ],
-      "description": "Observable pattern metrics for investigation, not a fake-review verdict."
+      ]
     },
     "translation": {
       "type": [
@@ -174,4 +169,3 @@
     "scrapedAt"
   ]
 }
-

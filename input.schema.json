@@ -1,0 +1,478 @@
+{
+  "title": "HolidayCheck Reviews & Rating Intelligence",
+  "description": "Collect and enrich structured HolidayCheck hotel reviews. Use only where you have a lawful basis and any permission required for the intended use.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "HolidayCheck hotel or review URLs",
+      "type": "array",
+      "description": "Direct HolidayCheck hotel, review, offer, media, or contribution URLs. Multiple hotels are supported. Billing is per delivered review row; with cross-run deduplication enabled, already-seen reviews are not re-emitted and not re-billed.",
+      "editor": "requestListSources",
+      "default": [
+        {
+          "url": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450"
+        }
+      ]
+    },
+    "collectionMode": {
+      "title": "Collection mode",
+      "type": "string",
+      "description": "All ignores the row limit and walks every available page. Limit returns at most the configured count. Since stops at the date boundary.",
+      "editor": "select",
+      "default": "limit",
+      "enum": [
+        "all",
+        "limit",
+        "since"
+      ],
+      "enumTitles": [
+        "All available reviews",
+        "Limit per hotel",
+        "Reviews since a date"
+      ],
+      "sectionCaption": "Collection"
+    },
+    "maxReviewsPerHotel": {
+      "title": "Maximum reviews per hotel",
+      "type": "integer",
+      "description": "Used only in Limit mode. A limited run leaves a resumable checkpoint.",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "cutoffDate": {
+      "title": "Only reviews on or after",
+      "type": "string",
+      "description": "Required in Since mode. Use YYYY-MM-DD and Newest sorting.",
+      "editor": "textfield",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "sort": {
+      "title": "Review sorting",
+      "type": "string",
+      "description": "Since mode requires Newest sorting.",
+      "editor": "select",
+      "default": "entrydate",
+      "enum": [
+        "entrydate",
+        "ranking",
+        "positive",
+        "negative"
+      ],
+      "enumTitles": [
+        "Newest",
+        "Relevance",
+        "Most positive",
+        "Most negative"
+      ]
+    },
+    "resumeFromCheckpoint": {
+      "title": "Resume incomplete collections",
+      "type": "boolean",
+      "description": "Continue an interrupted or limited collection at its next saved page.",
+      "default": true
+    },
+    "deduplicateAcrossRuns": {
+      "title": "Skip review IDs seen in earlier runs",
+      "type": "boolean",
+      "description": "Uses the named state store to emit only newly observed review IDs.",
+      "default": false
+    },
+    "resetState": {
+      "title": "Reset saved state for these hotels",
+      "type": "boolean",
+      "description": "Clears checkpoints, seen IDs, daily anomaly history, and persistent monthly trend aggregates for the input hotels before collecting. Content-addressed AI cache records are retained.",
+      "default": false
+    },
+    "stateStoreName": {
+      "title": "Persistent state store name",
+      "type": "string",
+      "description": "Named key-value store used for checkpoints, seen review IDs, anomaly baselines, and AI cache.",
+      "editor": "textfield",
+      "default": "holidaycheck-review-intelligence-state"
+    },
+    "includeAspectScores": {
+      "title": "Include native aspect scores",
+      "type": "boolean",
+      "description": "Create eight deterministic scores from HolidayCheck rating and topic fields.",
+      "default": true,
+      "sectionCaption": "Aspect and trend intelligence"
+    },
+    "includeAiAspectScores": {
+      "title": "Analyze full review text with AI",
+      "type": "boolean",
+      "description": "Score the same eight aspects from full text with exact-substring evidence and combine them with native signals. Requires an OpenAI API key and may incur charges.",
+      "default": false
+    },
+    "aiAspectModel": {
+      "title": "AI aspect model",
+      "type": "string",
+      "description": "OpenAI model used for evidence-validated full-text aspect analysis.",
+      "editor": "textfield",
+      "default": "gpt-5.6-luna"
+    },
+    "aiAspectBatchSize": {
+      "title": "Reviews per aspect request",
+      "type": "integer",
+      "description": "Maximum number of review texts included in one AI aspect request.",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 25
+    },
+    "aiAspectMaxConcurrency": {
+      "title": "Aspect-request concurrency",
+      "type": "integer",
+      "description": "Maximum number of AI aspect requests processed at the same time.",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 5
+    },
+    "ignoreAiAspectErrors": {
+      "title": "Continue when AI aspect analysis fails",
+      "type": "boolean",
+      "description": "Keep rows with unavailable AI scores and an error field instead of failing the run.",
+      "default": true
+    },
+    "includeTrendIntelligence": {
+      "title": "Build monthly aspect trends",
+      "type": "boolean",
+      "description": "Persist and store monthly averages, positive share, month-over-month delta, three-month rolling average, and direction in ASPECT_TRENDS.",
+      "default": true
+    },
+    "includeAnomalySignals": {
+      "title": "Include observable anomaly signals",
+      "type": "boolean",
+      "description": "Adds writing-pattern metrics, exact/near duplicates, rating runs, reviewer history, and historical burst z-scores. These fields are not fake-review verdicts.",
+      "default": true,
+      "sectionCaption": "Review fields and anomaly signals"
+    },
+    "includeReviewerDetails": {
+      "title": "Include reviewer profile details",
+      "type": "boolean",
+      "description": "Include displayed name, age group, profile ID, and public-profile flag. Disabled by default for data minimization.",
+      "default": false
+    },
+    "includeOwnerResponses": {
+      "title": "Include hotel owner responses",
+      "type": "boolean",
+      "description": "Keep publicly displayed hotel owner responses in the normalized review row.",
+      "default": true
+    },
+    "includeRawContributions": {
+      "title": "Include raw contribution blocks",
+      "type": "boolean",
+      "description": "Keep source contribution blocks for audit or custom downstream processing. Disabled by default to reduce output size.",
+      "default": false
+    },
+    "includeCompetitorSet": {
+      "title": "Build an automatic competitor set",
+      "type": "boolean",
+      "description": "Rank nearby and location-based alternatives with transparent similarity and source reasons.",
+      "default": true,
+      "sectionCaption": "Competitor intelligence"
+    },
+    "competitorLimit": {
+      "title": "Competitors per hotel",
+      "type": "integer",
+      "description": "Maximum number of selected comparable competitors returned for each target hotel.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 20
+    },
+    "competitorStarTolerance": {
+      "title": "Star-class tolerance",
+      "type": "integer",
+      "description": "Maximum absolute difference in star class allowed between target and competitor.",
+      "default": 1,
+      "minimum": 0,
+      "maximum": 2
+    },
+    "includePriceIntelligence": {
+      "title": "Add comparable live price bands",
+      "type": "boolean",
+      "description": "Fetch a best available offer for the target and every competitor using the exact same dates, occupancy, currency, offer type, and optional board filters.",
+      "default": false
+    },
+    "priceSearch": {
+      "title": "Comparable price search",
+      "type": "object",
+      "description": "Required when price intelligence is enabled.",
+      "editor": "json",
+      "properties": {
+        "checkIn": {
+          "title": "Check-in or package departure",
+          "type": "string",
+          "description": "Arrival date for hotel-only searches or departure date for package searches, formatted as YYYY-MM-DD.",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "checkOut": {
+          "title": "Check-out or package return",
+          "type": "string",
+          "description": "Departure date for hotel-only searches or return date for package searches, formatted as YYYY-MM-DD.",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "adults": {
+          "title": "Adults",
+          "type": "integer",
+          "description": "Number of adult guests used for every offer in the comparable price search.",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 12
+        },
+        "childrenAges": {
+          "title": "Children's ages",
+          "type": "array",
+          "description": "One age from 0 to 17 for each child.",
+          "editor": "stringList",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "rooms": {
+          "title": "Rooms",
+          "type": "integer",
+          "description": "Number of rooms used for every offer in the comparable price search.",
+          "default": 1,
+          "minimum": 1,
+          "maximum": 6
+        },
+        "currency": {
+          "title": "Currency",
+          "type": "string",
+          "description": "Three-letter currency code requested for target and competitor offers.",
+          "default": "EUR",
+          "pattern": "^[A-Za-z]{3}$"
+        },
+        "offerType": {
+          "title": "Offer type",
+          "type": "string",
+          "description": "Compare hotel-only offers or package offers; all targets and competitors use the same type.",
+          "editor": "select",
+          "default": "hotelonly",
+          "enum": [
+            "hotelonly",
+            "package"
+          ],
+          "enumTitles": [
+            "Hotel only",
+            "Package"
+          ]
+        },
+        "departureAirports": {
+          "title": "Departure airport codes",
+          "type": "array",
+          "description": "Optional IATA codes for package searches. Empty means any supported airport.",
+          "editor": "stringList",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "boardTypes": {
+          "title": "HolidayCheck board filter codes",
+          "type": "array",
+          "description": "Optional HolidayCheck codes such as GT06-AI. Empty means any board.",
+          "editor": "stringList",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "priceBandTolerancePercent": {
+      "title": "Same-price-band tolerance",
+      "type": "integer",
+      "description": "A competitor within plus or minus this percentage of the target nightly price is in the same band.",
+      "default": 15,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "includeManagementReport": {
+      "title": "Create a management report",
+      "type": "boolean",
+      "description": "Creates JSON and email-ready HTML portfolio reports plus explainable action alerts.",
+      "default": true,
+      "sectionCaption": "Management report and alerts"
+    },
+    "reportLanguage": {
+      "title": "Management report language",
+      "type": "string",
+      "description": "Language used for the generated HTML, JSON labels, text digest, and action alerts.",
+      "editor": "select",
+      "default": "en",
+      "enum": [
+        "en",
+        "de"
+      ],
+      "enumTitles": [
+        "English",
+        "German"
+      ]
+    },
+    "alertAspectDeclineThreshold": {
+      "title": "Aspect decline alert threshold",
+      "type": "number",
+      "description": "Create an alert when a monthly aspect score falls by at least this amount on the -1 to 1 scale.",
+      "default": 0.15,
+      "minimum": 0.01,
+      "maximum": 2
+    },
+    "alertMinimumReviewCount": {
+      "title": "Minimum reviews for a trend alert",
+      "type": "integer",
+      "description": "Suppress aspect decline alerts based on smaller monthly samples.",
+      "default": 3,
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "notificationWebhookUrl": {
+      "title": "Notification webhook URL",
+      "type": "string",
+      "description": "Optional HTTPS endpoint for a signed JSON digest. Connect it to your own email, Slack, Teams, Make, or Zapier workflow.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "notificationWebhookSecret": {
+      "title": "Webhook signing secret",
+      "type": "string",
+      "description": "Optional HMAC-SHA256 secret. When set, the request includes X-HolidayCheck-Signature.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "notificationMode": {
+      "title": "When to send a notification",
+      "type": "string",
+      "description": "Choose whether the signed webhook is sent for alerts, every completed report, or failed health states.",
+      "editor": "select",
+      "default": "alerts",
+      "enum": [
+        "alerts",
+        "always",
+        "failures"
+      ],
+      "enumTitles": [
+        "Only when alerts exist",
+        "After every completed run",
+        "Only when health fails"
+      ]
+    },
+    "ignoreNotificationErrors": {
+      "title": "Continue when notification delivery fails",
+      "type": "boolean",
+      "description": "Keep the Actor run successful and expose the delivery failure in health output instead of throwing.",
+      "default": true
+    },
+    "translateToEnglish": {
+      "title": "Translate review text to English",
+      "type": "boolean",
+      "description": "Translate title, full review, and owner response while preserving originals. Requires an OpenAI API key and may incur charges.",
+      "default": false,
+      "sectionCaption": "AI translation and cost control"
+    },
+    "openaiApiKey": {
+      "title": "OpenAI API key",
+      "type": "string",
+      "description": "Encrypted secret used for AI aspects and/or translation. OPENAI_API_KEY may be used instead.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "translationModel": {
+      "title": "Translation model",
+      "type": "string",
+      "description": "OpenAI model used to translate review content into English.",
+      "editor": "textfield",
+      "default": "gpt-5.6-luna"
+    },
+    "translationBatchSize": {
+      "title": "Reviews per translation request",
+      "type": "integer",
+      "description": "Maximum number of reviews included in one translation request.",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 25
+    },
+    "translationMaxConcurrency": {
+      "title": "Translation concurrency",
+      "type": "integer",
+      "description": "Maximum number of translation requests processed at the same time.",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 5
+    },
+    "ignoreTranslationErrors": {
+      "title": "Continue when translation fails",
+      "type": "boolean",
+      "description": "Keep original review rows and expose the translation error instead of failing the run.",
+      "default": true
+    },
+    "aiMaxRequests": {
+      "title": "Maximum AI requests per run",
+      "type": "integer",
+      "description": "Shared safety budget across AI aspect and translation requests.",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "aiMaxInputTokens": {
+      "title": "Maximum AI input tokens per run",
+      "type": "integer",
+      "description": "Shared preflight input-token safety budget across AI features.",
+      "default": 5000000,
+      "minimum": 1000,
+      "maximum": 100000000
+    },
+    "useAiCache": {
+      "title": "Reuse AI results from the state store",
+      "type": "boolean",
+      "description": "Caches by feature version, model, and source-content hash.",
+      "default": true
+    },
+    "maxConcurrency": {
+      "title": "Maximum hotel concurrency",
+      "type": "integer",
+      "description": "Maximum number of target hotels collected at the same time.",
+      "default": 3,
+      "minimum": 1,
+      "maximum": 10,
+      "sectionCaption": "Network and failure handling"
+    },
+    "maxRequestRetries": {
+      "title": "Request retries",
+      "type": "integer",
+      "description": "Maximum retry count for a failed HolidayCheck HTTP request.",
+      "default": 3,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "requestTimeoutSecs": {
+      "title": "Request timeout",
+      "type": "integer",
+      "description": "Maximum time to wait for one HolidayCheck HTTP request before retrying or failing it.",
+      "default": 30,
+      "minimum": 5,
+      "maximum": 120,
+      "unit": "seconds"
+    },
+    "ignoreUrlErrors": {
+      "title": "Continue when a hotel fails",
+      "type": "boolean",
+      "description": "Isolate a failed hotel URL, record its error, and continue processing the remaining hotels.",
+      "default": true
+    },
+    "proxyConfiguration": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "Apify Proxy is recommended for larger recurring collections.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": false
+      }
+    }
+  },
+  "required": [
+    "startUrls"
+  ]
+}
