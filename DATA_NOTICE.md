@@ -16,3 +16,7 @@ Source-provided verified-reservation flags are not independently verified. Obser
 
 Do not add API keys, webhook secrets, private customer data, private profile data, or full copyrighted review corpora to this repository. Confirm your lawful basis, source permissions, data minimization, retention period, and applicable privacy or database-right obligations before collecting or redistributing data.
 
+
+## Listing update on September 30, 2026
+
+The Store title, description and search metadata were checked against the owned Actor and synchronized with this repository. This documentation update does not alter executable code, input or output schemas, recorded test outputs, artifact hashes, billing or runtime builds. Existing examples retain their original dates and validation limits. A public listing is not evidence of successful output, network acceptance or an achieved search ranking.

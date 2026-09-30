@@ -1,0 +1,15 @@
+{
+  "id": "3ucO50v8A4Gju4EdT",
+  "name": "holidaycheck-review-intelligence",
+  "title": "HolidayCheck Reviews Scraper & German Hotel Reports",
+  "description": "Collect HolidayCheck guest reviews and create German or English hotel reputation reports for management and agencies. Export ratings and aspect evidence, compare nearby competitors and monitor review changes. Start with a ready-to-run 20-review report. Independent tool; no HolidayCheck login.",
+  "seoTitle": "HolidayCheck Reviews Scraper & German Hotel Reports",
+  "seoDescription": "Scrape HolidayCheck hotel reviews, ratings and aspect evidence. Create German or English hotel reports and competitor benchmarks with ready-to-run inputs.",
+  "isPublic": true,
+  "url": "https://apify.com/kamerozkan/holidaycheck-review-intelligence",
+  "checkedAt": "2026-09-30",
+  "changeScope": "listing metadata and sample documentation only",
+  "runtimeChanged": false,
+  "schemasChanged": false,
+  "examplesRegenerated": false
+}

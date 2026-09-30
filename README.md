@@ -1,6 +1,10 @@
 **Live Actor and maintained API: [Run HolidayCheck Review Intelligence on Apify](https://apify.com/kamerozkan/holidaycheck-review-intelligence)**
 
-# HolidayCheck Review Intelligence Sample
+# HolidayCheck Reviews Scraper & German Hotel Reports: Samples
+
+Collect HolidayCheck guest reviews and create German or English hotel reputation reports for management and agencies. Export ratings and aspect evidence, compare nearby competitors and monitor review changes. Start with a ready-to-run 20-review report. Independent tool; no HolidayCheck login.
+
+[Run HolidayCheck Reviews Scraper & German Hotel Reports on Apify](https://apify.com/kamerozkan/holidaycheck-review-intelligence)
 
 [![Actor](https://img.shields.io/badge/Apify-Run%20Actor-00a86b)](https://apify.com/kamerozkan/holidaycheck-review-intelligence)
 [![Schema](https://img.shields.io/badge/schema-current%20v0.4.17-2563eb)](dataset_record.schema.json)
