@@ -1,0 +1,104 @@
+{
+  "version": "management-report-v1",
+  "generatedAt": "2026-09-30T14:30:31.633Z",
+  "language": "de",
+  "period": {
+    "from": "2026-09-24T16:04:11.000Z",
+    "to": "2026-09-30T12:23:39.000Z"
+  },
+  "portfolio": {
+    "hotelCount": 1,
+    "reviewCount": 20,
+    "highAlerts": 0,
+    "mediumAlerts": 0,
+    "lowAlerts": 0
+  },
+  "hotels": [
+    {
+      "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+      "reviewCount": 20,
+      "firstReviewDate": "2026-09-24T16:04:11.000Z",
+      "latestReviewDate": "2026-09-30T12:23:39.000Z",
+      "averageRating10": 8.47,
+      "recommendationRate": 0.8,
+      "verifiedReservationShare": 0.45,
+      "elevatedBurstReviewCount": 0,
+      "duplicatePatternReviewCount": 0,
+      "highestBurstZScore": null,
+      "latestAspects": [
+        {
+          "aspect": "room",
+          "month": "2026-09",
+          "score": 0.625,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 15
+        },
+        {
+          "aspect": "cleanliness",
+          "month": "2026-09",
+          "score": 0.45,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 10
+        },
+        {
+          "aspect": "service",
+          "month": "2026-09",
+          "score": 0.471,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 17
+        },
+        {
+          "aspect": "foodAndBeverage",
+          "month": "2026-09",
+          "score": 0.446,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 16
+        },
+        {
+          "aspect": "location",
+          "month": "2026-09",
+          "score": 1,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 4
+        },
+        {
+          "aspect": "amenities",
+          "month": "2026-09",
+          "score": 0.422,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 9
+        },
+        {
+          "aspect": "value",
+          "month": "2026-09",
+          "score": 0.1,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 6
+        },
+        {
+          "aspect": "familyAndEntertainment",
+          "month": "2026-09",
+          "score": -1,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 1
+        }
+      ],
+      "competitorPosition": null
+    }
+  ],
+  "alerts": [],
+  "caveats": [
+    "Anomaliesignale sind beobachtbare Hinweise, keine Urteile über gefälschte Bewertungen.",
+    "Preise sind Momentaufnahmen für einen identischen Suchkontext und können sich ändern.",
+    "Bei der Interpretation von Trends sind Stichprobengröße und betrieblicher Kontext zu berücksichtigen."
+  ]
+}

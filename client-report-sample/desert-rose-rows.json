@@ -1,0 +1,902 @@
+[
+  {
+    "reviewId": "ec2f5fe0-c5de-430d-b164-15242b4e9cd3",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-ec2f5fe0-c5de-430d-b164-15242b4e9cd3",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T18:50:23.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "55884d0d-6049-4bae-8f19-3b533e7ba56c",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-55884d0d-6049-4bae-8f19-3b533e7ba56c",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T18:06:57.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 0.6
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": 0.6
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "9d167fe8-2605-4397-9bbf-e4cad4798933",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-9d167fe8-2605-4397-9bbf-e4cad4798933",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T16:02:18.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.2
+      },
+      "cleanliness": {
+        "score": 0.2
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "93b3bfdf-e56a-48ef-b60a-3e34f90f7c04",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-93b3bfdf-e56a-48ef-b60a-3e34f90f7c04",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T13:59:10.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "6027bf7f-391a-486a-9df1-53439a5e9f87",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-6027bf7f-391a-486a-9df1-53439a5e9f87",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T12:09:01.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": 1
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "58796ab4-5b54-4789-b556-dda8e72f8439",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-58796ab4-5b54-4789-b556-dda8e72f8439",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T11:57:55.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.6
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": 1
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "20a5815d-1853-43f4-824e-0f88c8e0062a",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-20a5815d-1853-43f4-824e-0f88c8e0062a",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T10:45:53.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.867
+      },
+      "cleanliness": {
+        "score": 0.8
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 0.4
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 0.8
+      },
+      "value": {
+        "score": 1
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "0224db23-d86b-4129-855d-b9af36b0e075",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-0224db23-d86b-4129-855d-b9af36b0e075",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T08:34:33.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "f02b6a77-848c-403c-9508-82c8e0eb5a79",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-f02b6a77-848c-403c-9508-82c8e0eb5a79",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T08:00:36.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.5
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "983c7d55-4866-4a3f-9063-eb7d12529515",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-983c7d55-4866-4a3f-9063-eb7d12529515",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-30T07:26:29.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "148a050e-ee18-4778-b844-d7cc1509b70d",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-148a050e-ee18-4778-b844-d7cc1509b70d",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T15:53:18.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 0.867
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.8
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": 0.543
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "804009f2-6431-4882-bc01-2240510ed51d",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-804009f2-6431-4882-bc01-2240510ed51d",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T13:40:22.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.8
+      },
+      "cleanliness": {
+        "score": 0.2
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 0.2
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "51517050-40c9-475c-a154-d88d21354beb",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-51517050-40c9-475c-a154-d88d21354beb",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T13:36:48.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 6.4,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": -1
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "c17c87a8-17c9-4484-9b89-bfdcbac0a7ac",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-c17c87a8-17c9-4484-9b89-bfdcbac0a7ac",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T13:36:17.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "ecf56239-956a-4337-b981-9f95aac67b83",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-ecf56239-956a-4337-b981-9f95aac67b83",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T13:12:58.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.9
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.733
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 0.84
+      },
+      "value": {
+        "score": 1
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "95bc6e1d-3933-4ab4-8d28-92079570ec7a",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-95bc6e1d-3933-4ab4-8d28-92079570ec7a",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T10:48:37.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.84
+      },
+      "cleanliness": {
+        "score": 0.6
+      },
+      "service": {
+        "score": 0
+      },
+      "foodAndBeverage": {
+        "score": 0.6
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": 0.58
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": 1
+      }
+    }
+  },
+  {
+    "reviewId": "44a87000-b44f-49c6-9f05-7aa84c0ec84e",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-44a87000-b44f-49c6-9f05-7aa84c0ec84e",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T09:27:57.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": -1
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "da9cb6cc-a214-4151-980a-4106ad72998b",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-da9cb6cc-a214-4151-980a-4106ad72998b",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T09:09:13.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "9b7a2e47-0d26-4e93-afd8-adf48cc5d7cb",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-9b7a2e47-0d26-4e93-afd8-adf48cc5d7cb",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-29T08:30:14.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.8
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "b3c825ec-203a-4121-8dd5-e9ed017e8167",
+    "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "hotelName": "Desert Rose",
+    "reviewUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-b3c825ec-203a-4121-8dd5-e9ed017e8167",
+    "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+    "entryDate": "2026-09-28T18:31:11.000Z",
+    "scrapedAt": "2026-09-30T21:09:16.311Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "name": "Desert Rose",
+      "rating6": 5.591541235908692,
+      "recommendationRate": 96.88,
+      "reviewCount": 11420
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.8
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": 0.6
+      },
+      "familyAndEntertainment": {
+        "score": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "title": "Two-hotel management briefing | 30 September 2026",
+  "runs": [
+    {
+      "runId": "7hddO24Xna0Mt0E32",
+      "buildNumber": "0.4.16",
+      "observedAt": "2026-09-30T14:30:32.258Z",
+      "datasetFile": "dana-beach-rows.json",
+      "outputFile": "dana-beach-OUTPUT.json",
+      "reportFile": "dana-beach-MANAGEMENT_REPORT.json",
+      "inputFile": "../04_german_management_report_input.json"
+    },
+    {
+      "runId": "TdTIIjrMV52Bav9I0",
+      "buildNumber": "0.4.17",
+      "observedAt": "2026-09-30T21:09:20.514Z",
+      "datasetFile": "desert-rose-rows.json",
+      "outputFile": "desert-rose-OUTPUT.json",
+      "reportFile": "desert-rose-MANAGEMENT_REPORT.json"
+    }
+  ]
+}

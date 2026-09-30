@@ -1,0 +1,37 @@
+{
+  "status": "SUCCEEDED",
+  "startedAt": "2026-09-30T21:09:16.311Z",
+  "finishedAt": "2026-09-30T21:09:20.514Z",
+  "requestedHotels": 1,
+  "processedHotels": 1,
+  "failedHotels": 0,
+  "reviewsOutput": 20,
+  "hotels": [
+    {
+      "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "hotelName": "Desert Rose",
+      "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "canonicalUrl": "https://www.holidaycheck.de/hr/bewertungen-desert-rose/406e56c2-0711-3f85-805a-aeaee0ae9405?p=2&sort=entrydate",
+      "pagesFetched": 2,
+      "pagesSkippedFromCheckpoint": 0,
+      "stoppedBecause": "limit",
+      "totalAvailable": 11420,
+      "indexedReviewsCount": 3763,
+      "reviewsCollected": 20,
+      "reviewsOutput": 20,
+      "competitorSetRef": null
+    }
+  ],
+  "failedUrls": [],
+  "health": {
+    "status": "healthy"
+  },
+  "billing": {
+    "limitReached": false
+  },
+  "collection": {
+    "mode": "limit",
+    "maxReviewsPerHotel": 20,
+    "cutoffDate": null
+  }
+}

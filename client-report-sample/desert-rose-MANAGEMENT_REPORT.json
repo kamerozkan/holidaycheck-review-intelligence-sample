@@ -1,0 +1,104 @@
+{
+  "version": "management-report-v1",
+  "generatedAt": "2026-09-30T21:09:19.903Z",
+  "language": "de",
+  "period": {
+    "from": "2026-09-28T18:31:11.000Z",
+    "to": "2026-09-30T18:50:23.000Z"
+  },
+  "portfolio": {
+    "hotelCount": 1,
+    "reviewCount": 20,
+    "highAlerts": 0,
+    "mediumAlerts": 0,
+    "lowAlerts": 0
+  },
+  "hotels": [
+    {
+      "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "hotelName": "Desert Rose",
+      "reviewCount": 20,
+      "firstReviewDate": "2026-09-28T18:31:11.000Z",
+      "latestReviewDate": "2026-09-30T18:50:23.000Z",
+      "averageRating10": 9.37,
+      "recommendationRate": 1,
+      "verifiedReservationShare": 0.2,
+      "elevatedBurstReviewCount": 0,
+      "duplicatePatternReviewCount": 0,
+      "highestBurstZScore": null,
+      "latestAspects": [
+        {
+          "aspect": "room",
+          "month": "2026-09",
+          "score": 0.701,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 13
+        },
+        {
+          "aspect": "cleanliness",
+          "month": "2026-09",
+          "score": 0.767,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 10
+        },
+        {
+          "aspect": "service",
+          "month": "2026-09",
+          "score": 0.857,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 7
+        },
+        {
+          "aspect": "foodAndBeverage",
+          "month": "2026-09",
+          "score": 0.579,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 13
+        },
+        {
+          "aspect": "location",
+          "month": "2026-09",
+          "score": 1,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 4
+        },
+        {
+          "aspect": "amenities",
+          "month": "2026-09",
+          "score": 0.905,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 13
+        },
+        {
+          "aspect": "value",
+          "month": "2026-09",
+          "score": 0.867,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 6
+        },
+        {
+          "aspect": "familyAndEntertainment",
+          "month": "2026-09",
+          "score": 1,
+          "previousMonthDelta": null,
+          "direction": "unavailable",
+          "reviewCount": 2
+        }
+      ],
+      "competitorPosition": null
+    }
+  ],
+  "alerts": [],
+  "caveats": [
+    "Anomaliesignale sind beobachtbare Hinweise, keine Urteile über gefälschte Bewertungen.",
+    "Preise sind Momentaufnahmen für einen identischen Suchkontext und können sich ändern.",
+    "Bei der Interpretation von Trends sind Stichprobengröße und betrieblicher Kontext zu berücksichtigen."
+  ]
+}

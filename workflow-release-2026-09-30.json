@@ -1,0 +1,30 @@
+{
+  "actorBuildNumber": "0.4.18",
+  "actorBuildId": "cuXn7tQKjY5Aiqe1R",
+  "runId": "AtVMiK0APCVffZTri",
+  "observedFinishedAt": "2026-09-30T21:26:12.643Z",
+  "platformStatus": "SUCCEEDED",
+  "outputStatus": "SUCCEEDED",
+  "collectionHealth": "healthy",
+  "processedHotels": 2,
+  "failedHotels": 0,
+  "reviewsOutput": 40,
+  "uniqueReviewIdsScopedByHotel": 40,
+  "maxReviewsPerHotel": 20,
+  "managementReportDelivered": true,
+  "chargedEventCounts": {
+    "apify-actor-start": 1,
+    "review-result": 40,
+    "competitor-set": 0,
+    "price-intelligence-set": 0,
+    "management-report": 1
+  },
+  "aiRequestsUsed": 0,
+  "livePriceEnabled": false,
+  "readmeOnlyChange": true,
+  "runtimeAndSchemasUnchanged": true,
+  "pricingUnchanged": true,
+  "clientReportTestsPassed": 21,
+  "ownerTestIsCustomerRevenue": false,
+  "sourceScope": "Two capped20-review hotel samples, not complete histories, period-matched comparison or an agency customer portfolio."
+}

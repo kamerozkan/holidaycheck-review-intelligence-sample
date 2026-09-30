@@ -11,5 +11,11 @@
   "changeScope": "listing metadata and sample documentation only",
   "runtimeChanged": false,
   "schemasChanged": false,
-  "examplesRegenerated": false
+  "examplesRegenerated": false,
+  "sampleWorkflow": {
+    "name": "two-hotel-client-portfolio",
+    "entrypoint": "build_client_report.py",
+    "evidence": "workflow-release-2026-09-30.json",
+    "publicTask": "https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-two-hotel-review-portfolio-report"
+  }
 }

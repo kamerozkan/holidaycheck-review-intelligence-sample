@@ -1,0 +1,566 @@
+{
+  "version": "holidaycheck-client-report-v1",
+  "title": "Two-hotel management briefing | 30 September 2026",
+  "generatedAt": "2026-09-30T21:20:02.137475+00:00",
+  "observationsPeriod": {
+    "from": "2026-09-30T14:30:32.258Z",
+    "to": "2026-09-30T21:09:20.514Z"
+  },
+  "portfolio": {
+    "hotelCount": 2,
+    "runCount": 2,
+    "observationCount": 2,
+    "identifiedUniqueReviewCount": 40,
+    "unidentifiedReviewRows": 0,
+    "duplicateRowsWithinRuns": 0,
+    "repeatedIdentifiedReviewsAcrossRuns": 0,
+    "collectionStatuses": {
+      "completed_capped": 2
+    },
+    "summaryOnlyObservationCount": 0
+  },
+  "hotels": [
+    {
+      "hotelId": "406e56c2-0711-3f85-805a-aeaee0ae9405",
+      "hotelName": "Desert Rose",
+      "observations": [
+        {
+          "runId": "TdTIIjrMV52Bav9I0",
+          "observedAt": "2026-09-30T21:09:20.514Z",
+          "buildNumber": "0.4.17",
+          "sourceUrl": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405",
+          "evidenceUrl": "https://console.apify.com/actors/runs/TdTIIjrMV52Bav9I0",
+          "collection": {
+            "status": "completed_capped",
+            "runStatus": "SUCCEEDED",
+            "healthStatus": "healthy",
+            "mode": "limit",
+            "maxReviewsPerHotel": 20,
+            "sort": null,
+            "cutoffDate": null,
+            "stopReason": "limit",
+            "pagesFetched": 2,
+            "sourceReportedReviewCount": 11420,
+            "publicIndexedReviewCount": 3763,
+            "reportedRowsOutput": 20,
+            "completeSourceHistory": false
+          },
+          "sample": {
+            "basis": "deduplicated dataset rows",
+            "reviewCount": 20,
+            "identifiedReviewCount": 20,
+            "duplicateRowsRemoved": 0,
+            "ratingCount": 20,
+            "averageRating10": 9.37,
+            "recommendation": {
+              "positive": 20,
+              "knownCount": 20,
+              "rate": 1.0
+            },
+            "verifiedReservation": {
+              "positive": 4,
+              "knownCount": 20,
+              "rate": 0.2
+            },
+            "period": {
+              "from": "2026-09-28T18:31:11.000Z",
+              "to": "2026-09-30T18:50:23.000Z"
+            },
+            "aspects": [
+              {
+                "aspect": "room",
+                "label": "Room",
+                "score": 0.701,
+                "reviewCount": 13,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "cleanliness",
+                "label": "Cleanliness",
+                "score": 0.767,
+                "reviewCount": 10,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "service",
+                "label": "Service",
+                "score": 0.857,
+                "reviewCount": 7,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "foodAndBeverage",
+                "label": "Food and beverage",
+                "score": 0.579,
+                "reviewCount": 13,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "location",
+                "label": "Location",
+                "score": 1.0,
+                "reviewCount": 4,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "amenities",
+                "label": "Amenities",
+                "score": 0.905,
+                "reviewCount": 13,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "value",
+                "label": "Value",
+                "score": 0.867,
+                "reviewCount": 6,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "familyAndEntertainment",
+                "label": "Family and entertainment",
+                "score": 1.0,
+                "reviewCount": 2,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              }
+            ],
+            "reviewEvidence": [
+              {
+                "reviewId": "ec2f5fe0-c5de-430d-b164-15242b4e9cd3",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-ec2f5fe0-c5de-430d-b164-15242b4e9cd3",
+                "entryDate": "2026-09-30T18:50:23.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "55884d0d-6049-4bae-8f19-3b533e7ba56c",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-55884d0d-6049-4bae-8f19-3b533e7ba56c",
+                "entryDate": "2026-09-30T18:06:57.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "9d167fe8-2605-4397-9bbf-e4cad4798933",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-9d167fe8-2605-4397-9bbf-e4cad4798933",
+                "entryDate": "2026-09-30T16:02:18.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "93b3bfdf-e56a-48ef-b60a-3e34f90f7c04",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-93b3bfdf-e56a-48ef-b60a-3e34f90f7c04",
+                "entryDate": "2026-09-30T13:59:10.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "6027bf7f-391a-486a-9df1-53439a5e9f87",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-6027bf7f-391a-486a-9df1-53439a5e9f87",
+                "entryDate": "2026-09-30T12:09:01.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "58796ab4-5b54-4789-b556-dda8e72f8439",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-58796ab4-5b54-4789-b556-dda8e72f8439",
+                "entryDate": "2026-09-30T11:57:55.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "20a5815d-1853-43f4-824e-0f88c8e0062a",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-20a5815d-1853-43f4-824e-0f88c8e0062a",
+                "entryDate": "2026-09-30T10:45:53.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "0224db23-d86b-4129-855d-b9af36b0e075",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-0224db23-d86b-4129-855d-b9af36b0e075",
+                "entryDate": "2026-09-30T08:34:33.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "f02b6a77-848c-403c-9508-82c8e0eb5a79",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-f02b6a77-848c-403c-9508-82c8e0eb5a79",
+                "entryDate": "2026-09-30T08:00:36.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "983c7d55-4866-4a3f-9063-eb7d12529515",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-983c7d55-4866-4a3f-9063-eb7d12529515",
+                "entryDate": "2026-09-30T07:26:29.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "148a050e-ee18-4778-b844-d7cc1509b70d",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-148a050e-ee18-4778-b844-d7cc1509b70d",
+                "entryDate": "2026-09-29T15:53:18.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "804009f2-6431-4882-bc01-2240510ed51d",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-804009f2-6431-4882-bc01-2240510ed51d",
+                "entryDate": "2026-09-29T13:40:22.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "51517050-40c9-475c-a154-d88d21354beb",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-51517050-40c9-475c-a154-d88d21354beb",
+                "entryDate": "2026-09-29T13:36:48.000Z",
+                "rating10": 6.4
+              },
+              {
+                "reviewId": "c17c87a8-17c9-4484-9b89-bfdcbac0a7ac",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-c17c87a8-17c9-4484-9b89-bfdcbac0a7ac",
+                "entryDate": "2026-09-29T13:36:17.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "ecf56239-956a-4337-b981-9f95aac67b83",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-ecf56239-956a-4337-b981-9f95aac67b83",
+                "entryDate": "2026-09-29T13:12:58.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "95bc6e1d-3933-4ab4-8d28-92079570ec7a",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-95bc6e1d-3933-4ab4-8d28-92079570ec7a",
+                "entryDate": "2026-09-29T10:48:37.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "44a87000-b44f-49c6-9f05-7aa84c0ec84e",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-44a87000-b44f-49c6-9f05-7aa84c0ec84e",
+                "entryDate": "2026-09-29T09:27:57.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "da9cb6cc-a214-4151-980a-4106ad72998b",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-da9cb6cc-a214-4151-980a-4106ad72998b",
+                "entryDate": "2026-09-29T09:09:13.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "9b7a2e47-0d26-4e93-afd8-adf48cc5d7cb",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-9b7a2e47-0d26-4e93-afd8-adf48cc5d7cb",
+                "entryDate": "2026-09-29T08:30:14.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "b3c825ec-203a-4121-8dd5-e9ed017e8167",
+                "url": "https://www.holidaycheck.de/hr/406e56c2-0711-3f85-805a-aeaee0ae9405#hotel-review-b3c825ec-203a-4121-8dd5-e9ed017e8167",
+                "entryDate": "2026-09-28T18:31:11.000Z",
+                "rating10": 10
+              }
+            ]
+          },
+          "sourceHotelSummary": {
+            "rating6": 5.591541235908692,
+            "recommendationRate": 96.88,
+            "reviewCount": 11420,
+            "basis": "source hotel metadata repeated in dataset rows"
+          },
+          "competitorCandidateCount": null,
+          "warnings": [
+            "Some aspect scores have fewer than five supporting reviews; interpret their coverage carefully."
+          ]
+        }
+      ],
+      "latestObservedAt": "2026-09-30T21:09:20.514Z"
+    },
+    {
+      "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+      "observations": [
+        {
+          "runId": "7hddO24Xna0Mt0E32",
+          "observedAt": "2026-09-30T14:30:32.258Z",
+          "buildNumber": "0.4.16",
+          "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+          "evidenceUrl": "https://console.apify.com/actors/runs/7hddO24Xna0Mt0E32",
+          "collection": {
+            "status": "completed_capped",
+            "runStatus": "SUCCEEDED",
+            "healthStatus": "healthy",
+            "mode": "limit",
+            "maxReviewsPerHotel": 20,
+            "sort": "entrydate",
+            "cutoffDate": null,
+            "stopReason": "limit",
+            "pagesFetched": 2,
+            "sourceReportedReviewCount": 28395,
+            "publicIndexedReviewCount": 2767,
+            "reportedRowsOutput": 20,
+            "completeSourceHistory": false
+          },
+          "sample": {
+            "basis": "deduplicated dataset rows",
+            "reviewCount": 20,
+            "identifiedReviewCount": 20,
+            "duplicateRowsRemoved": 0,
+            "ratingCount": 20,
+            "averageRating10": 8.47,
+            "recommendation": {
+              "positive": 16,
+              "knownCount": 20,
+              "rate": 0.8
+            },
+            "verifiedReservation": {
+              "positive": 9,
+              "knownCount": 20,
+              "rate": 0.45
+            },
+            "period": {
+              "from": "2026-09-24T16:04:11.000Z",
+              "to": "2026-09-30T12:23:39.000Z"
+            },
+            "aspects": [
+              {
+                "aspect": "room",
+                "label": "Room",
+                "score": 0.625,
+                "reviewCount": 15,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "cleanliness",
+                "label": "Cleanliness",
+                "score": 0.45,
+                "reviewCount": 10,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "service",
+                "label": "Service",
+                "score": 0.471,
+                "reviewCount": 17,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "foodAndBeverage",
+                "label": "Food and beverage",
+                "score": 0.446,
+                "reviewCount": 16,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "location",
+                "label": "Location",
+                "score": 1.0,
+                "reviewCount": 4,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "amenities",
+                "label": "Amenities",
+                "score": 0.422,
+                "reviewCount": 9,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "value",
+                "label": "Value",
+                "score": 0.1,
+                "reviewCount": 6,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              },
+              {
+                "aspect": "familyAndEntertainment",
+                "label": "Family and entertainment",
+                "score": -1.0,
+                "reviewCount": 1,
+                "basis": "mean of available deterministic aspectScores in sampled rows"
+              }
+            ],
+            "reviewEvidence": [
+              {
+                "reviewId": "0ca7391a-ceac-4d3a-9021-f525f0fad1b8",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-0ca7391a-ceac-4d3a-9021-f525f0fad1b8",
+                "entryDate": "2026-09-30T12:23:39.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "4061a028-ff58-49c0-bf4f-8c9e550f43b0",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-4061a028-ff58-49c0-bf4f-8c9e550f43b0",
+                "entryDate": "2026-09-29T17:02:39.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "5ae1e03b-10e1-4e05-a49d-9d19bbef96b1",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-5ae1e03b-10e1-4e05-a49d-9d19bbef96b1",
+                "entryDate": "2026-09-29T14:54:09.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "bdca363a-ea96-4f72-9b74-7c429bd6e0f0",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-bdca363a-ea96-4f72-9b74-7c429bd6e0f0",
+                "entryDate": "2026-09-29T08:00:34.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "ea7e6e53-0e0b-45e3-bf8f-470c53b9f5ee",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-ea7e6e53-0e0b-45e3-bf8f-470c53b9f5ee",
+                "entryDate": "2026-09-28T20:12:15.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "62c07e52-71bc-4317-9696-0d5f42a82b0f",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-62c07e52-71bc-4317-9696-0d5f42a82b0f",
+                "entryDate": "2026-09-28T18:55:49.000Z",
+                "rating10": 8.2
+              },
+              {
+                "reviewId": "96b94439-5ef3-4668-89f9-231f02513ce5",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-96b94439-5ef3-4668-89f9-231f02513ce5",
+                "entryDate": "2026-09-28T12:18:55.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "cb1f9f00-5345-4aca-a5f9-26fd0750a7ec",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-cb1f9f00-5345-4aca-a5f9-26fd0750a7ec",
+                "entryDate": "2026-09-28T11:35:00.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "34c56bc1-bfb7-4dcc-9920-c91dd80fa108",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-34c56bc1-bfb7-4dcc-9920-c91dd80fa108",
+                "entryDate": "2026-09-28T09:13:18.000Z",
+                "rating10": 4.6
+              },
+              {
+                "reviewId": "67b376d9-6181-466d-878d-d0f18ff46ae5",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-67b376d9-6181-466d-878d-d0f18ff46ae5",
+                "entryDate": "2026-09-28T08:00:50.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "9e035cc6-0fca-47d3-8ea4-dcf05a58b2d2",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-9e035cc6-0fca-47d3-8ea4-dcf05a58b2d2",
+                "entryDate": "2026-09-27T14:40:16.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "f0cb3d6e-5bbe-4009-bda8-0d9281491153",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-f0cb3d6e-5bbe-4009-bda8-0d9281491153",
+                "entryDate": "2026-09-27T14:19:51.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "f8388875-de64-4e98-a3d4-bfef9d6e7f0a",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-f8388875-de64-4e98-a3d4-bfef9d6e7f0a",
+                "entryDate": "2026-09-27T11:16:19.000Z",
+                "rating10": 4.6
+              },
+              {
+                "reviewId": "65f2ec00-a1bb-4a2f-bd74-0bb87cb87760",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-65f2ec00-a1bb-4a2f-bd74-0bb87cb87760",
+                "entryDate": "2026-09-27T10:47:57.000Z",
+                "rating10": 2.8
+              },
+              {
+                "reviewId": "074e5985-22b6-458e-97c0-756d6a1f3d99",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-074e5985-22b6-458e-97c0-756d6a1f3d99",
+                "entryDate": "2026-09-27T08:34:27.000Z",
+                "rating10": 4.6
+              },
+              {
+                "reviewId": "21b2eb3b-a400-4672-8bc7-87e57742aabb",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-21b2eb3b-a400-4672-8bc7-87e57742aabb",
+                "entryDate": "2026-09-27T08:00:21.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "b2104464-5811-4e92-b261-df06eaa15a20",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-b2104464-5811-4e92-b261-df06eaa15a20",
+                "entryDate": "2026-09-26T17:16:21.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "57efd965-90e8-4772-8ef7-cf6c4746baef",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-57efd965-90e8-4772-8ef7-cf6c4746baef",
+                "entryDate": "2026-09-25T17:18:39.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "005c767b-f34b-483e-95de-bd3b72d5cc32",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-005c767b-f34b-483e-95de-bd3b72d5cc32",
+                "entryDate": "2026-09-24T16:47:18.000Z",
+                "rating10": 10
+              },
+              {
+                "reviewId": "1f73d218-3c9b-49de-b6eb-fe7280a1e7db",
+                "url": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-1f73d218-3c9b-49de-b6eb-fe7280a1e7db",
+                "entryDate": "2026-09-24T16:04:11.000Z",
+                "rating10": 8.2
+              }
+            ]
+          },
+          "sourceHotelSummary": {
+            "rating6": 5.642100413382995,
+            "recommendationRate": 95.86,
+            "reviewCount": 28395,
+            "basis": "source hotel metadata repeated in dataset rows"
+          },
+          "competitorCandidateCount": null,
+          "warnings": [
+            "Some aspect scores have fewer than five supporting reviews; interpret their coverage carefully."
+          ]
+        }
+      ],
+      "latestObservedAt": "2026-09-30T14:30:32.258Z"
+    }
+  ],
+  "runs": [
+    {
+      "runId": "7hddO24Xna0Mt0E32",
+      "buildNumber": "0.4.16",
+      "observedAt": "2026-09-30T14:30:32.258Z",
+      "evidenceUrl": "https://console.apify.com/actors/runs/7hddO24Xna0Mt0E32",
+      "files": {
+        "datasetFile": {
+          "file": "dana-beach-rows.json",
+          "sha256": "a4e96c01583c2a1d8348578d482bd6f5a341a34feb4d7625c32866643318e0ec"
+        },
+        "outputFile": {
+          "file": "dana-beach-OUTPUT.json",
+          "sha256": "62996ff3fddc260ae9088743f72468847c12e1be0614c460a7febc3918b8fc66"
+        },
+        "reportFile": {
+          "file": "dana-beach-MANAGEMENT_REPORT.json",
+          "sha256": "81052b7d1c85615906a441cdfe9f1e9af7f9da2b7e0774193d886c19819d529d"
+        },
+        "inputFile": {
+          "file": "../04_german_management_report_input.json",
+          "sha256": "e3401466d23a6db3254b7aed1970e65d882fae9eebe2c6f709b0621a67b45c25"
+        }
+      },
+      "hotelCount": 1,
+      "platformStatus": "SUCCEEDED"
+    },
+    {
+      "runId": "TdTIIjrMV52Bav9I0",
+      "buildNumber": "0.4.17",
+      "observedAt": "2026-09-30T21:09:20.514Z",
+      "evidenceUrl": "https://console.apify.com/actors/runs/TdTIIjrMV52Bav9I0",
+      "files": {
+        "datasetFile": {
+          "file": "desert-rose-rows.json",
+          "sha256": "ae5392a27769258779a2ae9251e68782fdbdba422e2f45a07dfad8dc9502083e"
+        },
+        "outputFile": {
+          "file": "desert-rose-OUTPUT.json",
+          "sha256": "b13382de8a40715cebc90e6037d985ae280822c17aa6ad1da5165836e23dae73"
+        },
+        "reportFile": {
+          "file": "desert-rose-MANAGEMENT_REPORT.json",
+          "sha256": "232e618966f323c9ab790a1f88f76894cbec64a01b233103f599cea07f45705d"
+        }
+      },
+      "hotelCount": 1,
+      "platformStatus": "SUCCEEDED"
+    }
+  ],
+  "warnings": [],
+  "caveats": [
+    "This is a dated collection sample, not a current or complete hotel history.",
+    "Sample ratings use the review 1-10 scale. Source hotel ratings use the separate 0-6 scale.",
+    "Hotels, periods, sorting and coverage can differ. No hotel ranking or change claim is inferred.",
+    "Aspect scores are deterministic source signals on -1 to +1, not independent sentiment judgments.",
+    "Source verified-reservation flags are not independent verification of a stay.",
+    "Competitor candidate counts do not prove reviews were collected for those hotels.",
+    "Full review text, reviewer identities and source quotations are excluded from this client report."
+  ]
+}

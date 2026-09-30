@@ -1,0 +1,37 @@
+{
+  "status": "SUCCEEDED",
+  "startedAt": "2026-09-30T14:30:28.429Z",
+  "finishedAt": "2026-09-30T14:30:32.258Z",
+  "requestedHotels": 1,
+  "processedHotels": 1,
+  "failedHotels": 0,
+  "reviewsOutput": 20,
+  "hotels": [
+    {
+      "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+      "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "canonicalUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450?p=2&sort=entrydate",
+      "pagesFetched": 2,
+      "pagesSkippedFromCheckpoint": 0,
+      "stoppedBecause": "limit",
+      "totalAvailable": 28395,
+      "indexedReviewsCount": 2767,
+      "reviewsCollected": 20,
+      "reviewsOutput": 20,
+      "competitorSetRef": null
+    }
+  ],
+  "failedUrls": [],
+  "health": {
+    "status": "healthy"
+  },
+  "billing": {
+    "limitReached": false
+  },
+  "collection": {
+    "mode": "limit",
+    "maxReviewsPerHotel": 20,
+    "cutoffDate": null
+  }
+}

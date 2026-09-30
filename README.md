@@ -23,13 +23,64 @@ Release `0.4.17` changes only the Store README, retaining the same contracts. Th
 
 The redacted review outputs below retain their original July 28 provenance from run `KHUAJkF5fVUqKtd75`, build `0.4.10`, dataset `9r8R4Ivo0xSeIrM75`. They have not been relabeled as September observations. [dataset_record.schema.json](dataset_record.schema.json) and [input.schema.json](input.schema.json) were refreshed from deployed source `0.4.16`.
 
+## Build a client report for a hotel portfolio
+
+[Start the capped two-hotel Task](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-two-hotel-review-portfolio-report), then export its data for the local builder below. The README-only release `0.4.18` produced 40 unique reviews across two hotels, with healthy collection and one delivered German management report. [Release evidence](workflow-release-2026-09-30.json). This is an owner test, not customer revenue.
+
+The local [Python report builder](build_client_report.py) combines exported Actor datasets, `OUTPUT` records and optional `MANAGEMENT_REPORT` JSON records into one readable HTML briefing and a separate client-report JSON contract. It uses Python 3.9 or later with the standard library, reads local files and makes no network requests. It does not start an Actor or incur platform or AI charges.
+
+[Open the dated two-hotel HTML sample](client-report-sample/report.html) or inspect its [client-report JSON](client-report-sample/report.json) and [manifest](client-report-sample/manifest.json).
+
+The sample contains **two distinct hotels and 40 identified unique reviews**, 20 per hotel. Dana Beach was observed at `2026-09-30T14:30:32.258Z` in run `7hddO24Xna0Mt0E32`, build `0.4.16`. Desert Rose was observed at `2026-09-30T21:09:20.514Z` in run `TdTIIjrMV52Bav9I0`, build `0.4.17`. Both runs had healthy collection, stopped at the 20-review limit and did not use AI or live prices. Their review-entry date windows differ: September 24-30 and September 28-30. The sample is historical owner verification, not a current customer report or a like-for-like hotel ranking.
+
+From this repository directory, reproduce the report:
+
+```bash
+python3 build_client_report.py client-report-sample/manifest.json --output-dir client-report
+python3 -m unittest discover -s tests -v
+```
+
+Open `client-report/report.html` as a local document, or use `client-report/report.json` in your reporting system. The HTML is self-contained and does not load third-party scripts, fonts or images.
+
+For your own portfolio:
+
+1. Collect only the hotels you need, with a result cap and a spending cap. Export each run's dataset as JSON and its key-value-store `OUTPUT`; optionally export `MANAGEMENT_REPORT` and the actual input.
+2. Put those files in a local working directory outside this public sample repository. Create a manifest with one entry per run. File references are relative to the manifest's directory.
+3. Run the builder with that manifest and an output directory. Check each hotel's collection status, timestamp, entry-date window, cap and coverage before sharing the briefing.
+
+```json
+{
+  "title": "Hotel portfolio review briefing",
+  "runs": [
+    {
+      "runId": "YOUR_ACTUAL_RUN_ID",
+      "buildNumber": "YOUR_ACTUAL_BUILD_NUMBER",
+      "observedAt": "YOUR_ACTUAL_UTC_OBSERVATION_TIMESTAMP",
+      "datasetFile": "hotel-run-dataset.json",
+      "outputFile": "hotel-run-OUTPUT.json",
+      "reportFile": "hotel-run-MANAGEMENT_REPORT.json",
+      "inputFile": "hotel-run-INPUT.json"
+    }
+  ]
+}
+```
+
+Each run needs `runId` and at least one of `datasetFile`, `outputFile` or `reportFile`. `buildNumber` and `inputFile` are optional. Supply `observedAt` when the exports do not contain `OUTPUT.finishedAt` or report `generatedAt`; use the actual collection timestamp. Accepted dataset forms are a JSON array, an `items` envelope, a `data.items` envelope or one review record. An optional `expectedHotels` array of `hotelId`, `hotelName` and `sourceUrl` records makes hotels with failed or empty output visible. An optional `evidenceUrl` overrides the Console run link. JSON manifests and exports are data, never executed code.
+
+The briefing separates sampled review ratings on the 1-10 scale from the source hotel's 0-6 aggregate rating and source-reported review count. It shows the number of available ratings and aspect scores, plus the known boolean denominators for recommendations and source verified-reservation flags. Missing values remain unavailable; zero is not substituted for missing data. Individual dataset rows take precedence over a conflicting report aggregate. With only an aggregate report, counts and ratings stay labeled as report aggregates and no review identities or exact denominators are invented.
+
+Each hotel retains its individual run observations. Review IDs are deduplicated within a run and across portfolio observations; overlapping runs do not inflate the identified unique total. Rows without IDs are separately disclosed. File hashes and run/source/review links retain evidence provenance. The renderer escapes text and filters unsafe link schemes. It includes no full review text, reviewer identities, private input or API keys in the client artifacts.
+
+Use a cadence that fits the reporting need. A later collection can be added as another manifest run, but different caps, sorts, dates or source coverage do not establish a trend. This builder intentionally produces no portfolio rating, hotel ranking, sentiment verdict or price comparison. Existing Actor schemas and examples retain their original contracts; the client's `holidaycheck-client-report-v1` JSON is a separate local artifact.
+
 ## Public Store examples
 
-Three example tasks are published:
+Four example tasks are published:
 
 | Use case | Published example | Input |
 | --- | --- | --- |
 | Review export | [Scrape reviews, ratings and aspects](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/scrape-hotel-reviews-with-ratings) | [Original public input](01_public_store_example_input.json) |
+| Agency portfolio | [Create a two-hotel review portfolio report](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-two-hotel-review-portfolio-report) | [Two real hotel inputs](06_two_hotel_portfolio_input.json) |
 | German reporting | [Create a German hotel review report](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-german-hotel-review-report) | [Report input](04_german_management_report_input.json) |
 | Competitor benchmark | [Compare a hotel with nearby competitors](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/compare-a-hotel-with-nearby-competitors) | [Competitor input](05_competitor_benchmark_input.json) |
 

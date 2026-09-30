@@ -1,0 +1,902 @@
+[
+  {
+    "reviewId": "0ca7391a-ceac-4d3a-9021-f525f0fad1b8",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-0ca7391a-ceac-4d3a-9021-f525f0fad1b8",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-30T12:23:39.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "4061a028-ff58-49c0-bf4f-8c9e550f43b0",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-4061a028-ff58-49c0-bf4f-8c9e550f43b0",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-29T17:02:39.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.6
+      },
+      "cleanliness": {
+        "score": 0.8
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 0
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 0.8
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "5ae1e03b-10e1-4e05-a49d-9d19bbef96b1",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-5ae1e03b-10e1-4e05-a49d-9d19bbef96b1",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-29T14:54:09.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.867
+      },
+      "cleanliness": {
+        "score": 0.6
+      },
+      "service": {
+        "score": null
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "bdca363a-ea96-4f72-9b74-7c429bd6e0f0",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-bdca363a-ea96-4f72-9b74-7c429bd6e0f0",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-29T08:00:34.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "ea7e6e53-0e0b-45e3-bf8f-470c53b9f5ee",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-ea7e6e53-0e0b-45e3-bf8f-470c53b9f5ee",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-28T20:12:15.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.9
+      },
+      "cleanliness": {
+        "score": 0.6
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.84
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": 0.6
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "62c07e52-71bc-4317-9696-0d5f42a82b0f",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-62c07e52-71bc-4317-9696-0d5f42a82b0f",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-28T18:55:49.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.733
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "96b94439-5ef3-4668-89f9-231f02513ce5",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-96b94439-5ef3-4668-89f9-231f02513ce5",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-28T12:18:55.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "cb1f9f00-5345-4aca-a5f9-26fd0750a7ec",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-cb1f9f00-5345-4aca-a5f9-26fd0750a7ec",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-28T11:35:00.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "34c56bc1-bfb7-4dcc-9920-c91dd80fa108",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-34c56bc1-bfb7-4dcc-9920-c91dd80fa108",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-28T09:13:18.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 4.6,
+    "recommendation": false,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": -0.6
+      },
+      "cleanliness": {
+        "score": -0.8
+      },
+      "service": {
+        "score": -1
+      },
+      "foodAndBeverage": {
+        "score": -0.8
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "67b376d9-6181-466d-878d-d0f18ff46ae5",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-67b376d9-6181-466d-878d-d0f18ff46ae5",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-28T08:00:50.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "9e035cc6-0fca-47d3-8ea4-dcf05a58b2d2",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-9e035cc6-0fca-47d3-8ea4-dcf05a58b2d2",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-27T14:40:16.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.867
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": 1
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "f0cb3d6e-5bbe-4009-bda8-0d9281491153",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-f0cb3d6e-5bbe-4009-bda8-0d9281491153",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-27T14:19:51.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "f8388875-de64-4e98-a3d4-bfef9d6e7f0a",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-f8388875-de64-4e98-a3d4-bfef9d6e7f0a",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-27T11:16:19.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 4.6,
+    "recommendation": false,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": -0.16
+      },
+      "cleanliness": {
+        "score": -0.1
+      },
+      "service": {
+        "score": 0
+      },
+      "foodAndBeverage": {
+        "score": -0.7
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": -1
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "65f2ec00-a1bb-4a2f-bd74-0bb87cb87760",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-65f2ec00-a1bb-4a2f-bd74-0bb87cb87760",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-27T10:47:57.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 2.8,
+    "recommendation": false,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 0.167
+      },
+      "cleanliness": {
+        "score": -0.6
+      },
+      "service": {
+        "score": -1
+      },
+      "foodAndBeverage": {
+        "score": -0.3
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": -1
+      },
+      "value": {
+        "score": -0.6
+      },
+      "familyAndEntertainment": {
+        "score": -1
+      }
+    }
+  },
+  {
+    "reviewId": "074e5985-22b6-458e-97c0-756d6a1f3d99",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-074e5985-22b6-458e-97c0-756d6a1f3d99",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-27T08:34:27.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 4.6,
+    "recommendation": false,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": null
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": -1
+      },
+      "foodAndBeverage": {
+        "score": 0.5
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": -1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "21b2eb3b-a400-4672-8bc7-87e57742aabb",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-21b2eb3b-a400-4672-8bc7-87e57742aabb",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-27T08:00:21.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.5
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 0
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "b2104464-5811-4e92-b261-df06eaa15a20",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-b2104464-5811-4e92-b261-df06eaa15a20",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-26T17:16:21.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": 1
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "57efd965-90e8-4772-8ef7-cf6c4746baef",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-57efd965-90e8-4772-8ef7-cf6c4746baef",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-25T17:18:39.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 0.36
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": 0.6
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "005c767b-f34b-483e-95de-bd3b72d5cc32",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-005c767b-f34b-483e-95de-bd3b72d5cc32",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-24T16:47:18.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 10,
+    "recommendation": true,
+    "verifiedReservation": false,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": 1
+      },
+      "cleanliness": {
+        "score": 1
+      },
+      "service": {
+        "score": 1
+      },
+      "foodAndBeverage": {
+        "score": 1
+      },
+      "location": {
+        "score": null
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": null
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  },
+  {
+    "reviewId": "1f73d218-3c9b-49de-b6eb-fe7280a1e7db",
+    "hotelId": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "hotelName": "Pickalbatros Dana Beach Resort - Hurghada",
+    "reviewUrl": "https://www.holidaycheck.de/hr/1aa4c4ad-f9ea-3367-a163-8a3a6884d450#hotel-review-1f73d218-3c9b-49de-b6eb-fe7280a1e7db",
+    "sourceUrl": "https://www.holidaycheck.de/hr/bewertungen-pickalbatros-dana-beach-resort-hurghada/1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+    "entryDate": "2026-09-24T16:04:11.000Z",
+    "scrapedAt": "2026-09-30T14:30:28.429Z",
+    "overallRating": 8.2,
+    "recommendation": true,
+    "verifiedReservation": true,
+    "hotel": {
+      "id": "1aa4c4ad-f9ea-3367-a163-8a3a6884d450",
+      "name": "Pickalbatros Dana Beach Resort - Hurghada",
+      "rating6": 5.642100413382995,
+      "recommendationRate": 95.86,
+      "reviewCount": 28395
+    },
+    "aspectScores": {
+      "room": {
+        "score": -0.267
+      },
+      "cleanliness": {
+        "score": null
+      },
+      "service": {
+        "score": -1
+      },
+      "foodAndBeverage": {
+        "score": null
+      },
+      "location": {
+        "score": 1
+      },
+      "amenities": {
+        "score": null
+      },
+      "value": {
+        "score": 0
+      },
+      "familyAndEntertainment": {
+        "score": null
+      }
+    }
+  }
+]
