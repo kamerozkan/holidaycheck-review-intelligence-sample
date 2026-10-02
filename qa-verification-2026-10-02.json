@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-02",
+  "scope": "Offline customer report and billing consumer helpers only",
+  "newCloudRuns": 0,
+  "actorRuntimeChanges": false,
+  "pricingChanges": false,
+  "externalMessagesSent": 0,
+  "customerImpactVerified": false,
+  "sourceRunAuthenticityVerifiedByThisAudit": false,
+  "localTestsPassed": 33,
+  "fixes": [
+    "Reject conflicting hotel and run identities",
+    "Label partial and oversized local exports explicitly",
+    "Keep platform failure distinct from successful OUTPUT",
+    "Use actual export timestamps and expose timestamp conflicts",
+    "Keep original collection dates in rebuilt client samples"
+  ],
+  "changedSourceFiles": [
+    {
+      "repo": "holidaycheck-review-intelligence-sample",
+      "path": "build_client_report.py",
+      "sha256": "2dab3af61ab5f10994cec5e021b251fe9d8c583252d23a809e72e2b33e832eaa"
+    },
+    {
+      "repo": "holidaycheck-review-intelligence-sample",
+      "path": "tests/test_client_report.py",
+      "sha256": "edca1001a80567d9d9c509dc9bd6abec98f9cdcc4456672776854982521a9fb2"
+    }
+  ],
+  "datedRealReplays": [
+    {
+      "source": "dated September 30 public redacted two-run report sample",
+      "runIds": [
+        "7hddO24Xna0Mt0E32",
+        "TdTIIjrMV52Bav9I0"
+      ],
+      "buildNumbers": [
+        "0.4.16",
+        "0.4.17"
+      ],
+      "hotelCount": 2,
+      "uniqueReviews": 40,
+      "collectionStatuses": {
+        "completed_capped": 2
+      },
+      "datasetCompleteness": [
+        "matched",
+        "matched"
+      ],
+      "runPlatformStatuses": [
+        "unknown",
+        "unknown"
+      ],
+      "runOutputStatuses": [
+        "SUCCEEDED",
+        "SUCCEEDED"
+      ],
+      "reviewCounts": [
+        20,
+        20
+      ],
+      "freshCloudRun": false
+    },
+    {
+      "source": "dated September 30 actual single-run two-hotel report",
+      "runIds": [
+        "AtVMiK0APCVffZTri"
+      ],
+      "buildNumbers": [
+        "0.4.18"
+      ],
+      "hotelCount": 2,
+      "uniqueReviews": 40,
+      "collectionStatuses": {
+        "completed_capped": 2
+      },
+      "datasetCompleteness": [
+        "matched",
+        "matched"
+      ],
+      "runPlatformStatuses": [
+        "unknown"
+      ],
+      "runOutputStatuses": [
+        "SUCCEEDED"
+      ],
+      "reviewCounts": [
+        20,
+        20
+      ],
+      "freshCloudRun": false
+    }
+  ],
+  "independentFocusedProbes": "PASS; separate from regression suite",
+  "publicationScope": "Local consumer helper and sample documentation; no deployed Actor change"
+}

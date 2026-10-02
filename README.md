@@ -7,7 +7,7 @@ Collect HolidayCheck guest reviews and create German or English hotel reputation
 [Run HolidayCheck Reviews Scraper & German Hotel Reports on Apify](https://apify.com/kamerozkan/holidaycheck-review-intelligence)
 
 [![Actor](https://img.shields.io/badge/Apify-Run%20Actor-00a86b)](https://apify.com/kamerozkan/holidaycheck-review-intelligence)
-[![Schema](https://img.shields.io/badge/schema-current%20v0.4.17-2563eb)](dataset_record.schema.json)
+[![Schema](https://img.shields.io/badge/schema-retained%20from%20v0.4.16-2563eb)](dataset_record.schema.json)
 [![Source](https://img.shields.io/badge/source-public%20HolidayCheck-f59e0b)](#source-boundaries)
 [![License](https://img.shields.io/badge/license-MIT-111827)](LICENSE)
 
@@ -72,6 +72,14 @@ The briefing separates sampled review ratings on the 1-10 scale from the source 
 Each hotel retains its individual run observations. Review IDs are deduplicated within a run and across portfolio observations; overlapping runs do not inflate the identified unique total. Rows without IDs are separately disclosed. File hashes and run/source/review links retain evidence provenance. The renderer escapes text and filters unsafe link schemes. It includes no full review text, reviewer identities, private input or API keys in the client artifacts.
 
 Use a cadence that fits the reporting need. A later collection can be added as another manifest run, but different caps, sorts, dates or source coverage do not establish a trend. This builder intentionally produces no portfolio rating, hotel ranking, sentiment verdict or price comparison. Existing Actor schemas and examples retain their original contracts; the client's `holidaycheck-client-report-v1` JSON is a separate local artifact.
+
+## Report integrity fixes on October 2, 2026
+
+The local builder now rejects conflicting hotel or run identities and labels missing or extra dataset rows explicitly. A partial export is `incomplete_export`, even when the source OUTPUT says the run succeeded. Collection state retains `datasetCompleteness` and `localDatasetRows` so an incomplete briefing cannot be mistaken for the full delivered dataset.
+
+A failed platform run stays failed in both the JSON and HTML provenance; OUTPUT status is shown separately. If platform metadata is absent, its status is `unknown`. Exported collection timestamps take precedence over a conflicting manifest date, which produces a warning. Report generation time does not refresh the age of collected reviews.
+
+All **33 regression tests** passed, followed by independent probes and replays of the existing September 30 two-hotel exports. The bundled JSON/HTML sample was rebuilt locally with the original collection dates and still contains two hotels and 40 identified unique reviews. It is historical owner evidence, not a fresh scrape or a customer report. [Dated integrity proof](qa-verification-2026-10-02.json).
 
 ## Public Store examples
 

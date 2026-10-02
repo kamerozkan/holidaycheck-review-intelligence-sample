@@ -292,6 +292,98 @@ class ReportTests(unittest.TestCase):
         self.assertTrue((self.root / "result/report.html").is_file())
         self.assertEqual(json.loads((self.root / "result/report.json").read_text())["portfolio"]["identifiedUniqueReviewCount"], 1)
 
+    def test_truncated_export_retains_rows_but_is_not_completed(self):
+        output = {"status": "SUCCEEDED", "collection": {"mode": "limit", "maxReviewsPerHotel": 20},
+                  "hotels": [{"hotelId": "a", "reviewsOutput": 20}]}
+        report = self.build([self.manifest_run([row()], output=output)])
+        observation = report["hotels"][0]["observations"][0]
+        self.assertEqual(observation["sample"]["reviewCount"], 1)
+        self.assertEqual(observation["collection"]["status"], "incomplete_export")
+        self.assertEqual(observation["collection"]["datasetCompleteness"], "incomplete")
+        self.assertIn("incomplete export", render_html(report))
+
+    def test_extra_rows_are_explicitly_inconsistent_not_completed(self):
+        output = {"status": "SUCCEEDED", "hotels": [{"hotelId": "a", "reviewsOutput": 1}]}
+        report = self.build([self.manifest_run([row(identity="1"), row(identity="2")], output=output)])
+        state = report["hotels"][0]["observations"][0]["collection"]
+        self.assertEqual(state["status"], "inconsistent_export")
+        self.assertEqual(state["datasetCompleteness"], "count_mismatch")
+
+    def test_raw_duplicate_download_count_is_not_a_partial_export(self):
+        output = {"status": "SUCCEEDED", "collection": {"mode": "limit"}, "hotels": [{"hotelId": "a", "reviewsOutput": 2}]}
+        report = self.build([self.manifest_run([row(), row()], output=output)])
+        observation = report["hotels"][0]["observations"][0]
+        self.assertEqual(observation["sample"]["reviewCount"], 1)
+        self.assertEqual(observation["collection"]["localDatasetRows"], 2)
+        self.assertEqual(observation["collection"]["datasetCompleteness"], "matched")
+        self.assertEqual(observation["collection"]["status"], "completed_capped")
+
+    def test_failed_platform_status_overrides_stale_success_output(self):
+        for platform in ["FAILED", "TIMED-OUT", "ABORTED"]:
+            with self.subTest(platform=platform):
+                run = self.manifest_run([row()], output={"status": "SUCCEEDED", "hotels": [{"hotelId": "a", "reviewsOutput": 1}]})
+                run["platformStatus"] = platform
+                report = self.build([run])
+                observation = report["hotels"][0]["observations"][0]
+                self.assertEqual(observation["collection"]["status"], "partial")
+                self.assertEqual(observation["collection"]["platformStatus"], platform)
+                self.assertEqual(observation["sample"]["reviewCount"], 1)
+                self.assertTrue(any("statuses conflict" in w for w in observation["warnings"]))
+                self.assertEqual(report["runs"][0]["platformStatus"], platform)
+                self.assertEqual(report["runs"][0]["outputStatus"], "SUCCEEDED")
+                page = render_html(report)
+                self.assertIn(platform + "<br><small>OUTPUT SUCCEEDED", page)
+                self.assertNotIn("<td>SUCCEEDED</td>", page)
+
+    def test_manifest_date_does_not_relabel_old_export_as_current(self):
+        run = self.manifest_run([row()], output={"status": "SUCCEEDED", "finishedAt": "2026-07-01T12:00:00Z",
+                                                "hotels": [{"hotelId": "a", "reviewsOutput": 1}]})
+        report = self.build([run])
+        self.assertEqual(report["hotels"][0]["latestObservedAt"], "2026-07-01T12:00:00Z")
+        self.assertTrue(any("timestamp takes precedence" in w for w in report["warnings"]))
+
+    def test_run_chronology_and_explicit_foreign_report_run_are_rejected(self):
+        run = self.manifest_run([row()], output={"startedAt": "2026-10-01T00:00:00Z", "finishedAt": OBSERVED})
+        with self.assertRaisesRegex(ValueError, "chronology"):
+            self.build([run])
+        run = self.manifest_run([row()], report={"runId": "foreignRun"})
+        with self.assertRaisesRegex(ValueError, "runId conflicts"):
+            self.build([run])
+
+    def test_conflicting_nested_hotel_identity_is_rejected(self):
+        bad = row()
+        bad["hotel"]["id"] = "other-hotel"
+        with self.assertRaisesRegex(ValueError, "hotelId conflicts"):
+            self.build([self.manifest_run([bad])])
+
+    def test_repeated_hotel_summary_is_not_silently_overwritten(self):
+        output = {"status": "SUCCEEDED", "hotels": [{"hotelId": "a", "reviewsOutput": 1}, {"hotelId": "a", "reviewsOutput": 99}]}
+        with self.assertRaisesRegex(ValueError, "Duplicate hotel"):
+            self.build([self.manifest_run([row()], output=output)])
+
+    def test_overflowing_timestamp_is_unavailable_not_an_uncaught_error(self):
+        bad = row()
+        bad["entryDate"] = "9999-12-31T23:59:59-14:00"
+        report = self.build([self.manifest_run([bad])])
+        self.assertIsNone(report["hotels"][0]["observations"][0]["sample"]["period"]["from"])
+
+    def test_review_date_after_collection_has_an_explicit_warning(self):
+        bad = row()
+        bad["entryDate"] = "2026-10-02T00:00:00Z"
+        report = self.build([self.manifest_run([bad])])
+        self.assertTrue(any("after the collection timestamp" in w for w in report["hotels"][0]["observations"][0]["warnings"]))
+
+    def test_invalid_generation_date_cannot_be_report_metadata(self):
+        with self.assertRaisesRegex(ValueError, "generatedAt"):
+            build_report({"runs": [self.manifest_run([row()])]}, self.root, "invalid")
+
+    def test_missing_platform_metadata_is_not_inferred_from_output_success(self):
+        run = self.manifest_run([row()], output={"status": "SUCCEEDED", "hotels": [{"hotelId": "a", "reviewsOutput": 1}]})
+        report = self.build([run])
+        self.assertEqual(report["runs"][0]["platformStatus"], "unknown")
+        self.assertEqual(report["runs"][0]["outputStatus"], "SUCCEEDED")
+        self.assertIn("unknown<br><small>OUTPUT SUCCEEDED", render_html(report))
+
 
 if __name__ == "__main__":
     unittest.main()

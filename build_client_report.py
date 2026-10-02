@@ -30,6 +30,7 @@ CAVEATS = [
     "Source verified-reservation flags are not independent verification of a stay.",
     "Competitor candidate counts do not prove reviews were collected for those hotels.",
     "Full review text, reviewer identities and source quotations are excluded from this client report.",
+    "Local file hashes identify saved exports; manifest run labels alone do not authenticate their cloud origin.",
 ]
 
 
@@ -52,7 +53,7 @@ def timestamp(value):
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
         return parsed.replace(tzinfo=parsed.tzinfo or timezone.utc).astimezone(timezone.utc)
-    except ValueError:
+    except (ValueError, OverflowError):
         return None
 
 
@@ -76,8 +77,11 @@ def safe_url(value):
 
 def hotel_id(row):
     hotel = mapping(row.get("hotel"))
+    row_id, nested_id = row.get("hotelId"), hotel.get("id")
+    if row_id is not None and nested_id is not None and str(row_id) != str(nested_id):
+        raise ValueError("Dataset hotelId conflicts with nested hotel.id.")
     value = row.get("hotelId") or hotel.get("id") or row.get("sourceUrl")
-    return str(value) if isinstance(value, (str, int)) and not isinstance(value, bool) else None
+    return str(value).strip() or None if isinstance(value, (str, int)) and not isinstance(value, bool) else None
 
 
 def read_file(root, filename):
@@ -187,19 +191,21 @@ def sample_summary(rows, report_hotel, warnings):
     return summary
 
 
-def collection(output, output_hotel, source_url, run, input_data):
+def collection(output, output_hotel, source_url, run, input_data, local_rows=None):
     config = mapping(output.get("collection"))
     failed_urls = output.get("failedUrls") or []
     failed = any((entry.get("url") if isinstance(entry, dict) else entry) == source_url for entry in failed_urls) if source_url else False
-    run_status = text(output.get("status")) or text(run.get("platformStatus")) or "unknown"
+    output_status, platform_status = text(output.get("status")), text(run.get("platformStatus"))
+    failures = {"FAILED", "TIMED-OUT", "TIMED_OUT", "ABORTED"}
+    run_status = platform_status if platform_status in failures else output_status or platform_status or "unknown"
     mode = text(config.get("mode")) or text(input_data.get("collectionMode"))
     limit = count(config.get("maxReviewsPerHotel"))
     if limit is None:
         limit = count(input_data.get("maxReviewsPerHotel"))
     if failed:
         state = "failed"
-    elif run_status in ("FAILED", "TIMED-OUT", "ABORTED"):
-        state = "partial" if output_hotel else "failed"
+    elif run_status in failures:
+        state = "partial" if local_rows or output_hotel else "failed"
     elif mapping(output.get("billing")).get("limitReached") is True:
         state = "limited"
     elif number(output.get("failedHotels"), 0) and output_hotel:
@@ -208,19 +214,30 @@ def collection(output, output_hotel, source_url, run, input_data):
         state = "completed_capped" if mode == "limit" else "completed_public_collection"
     else:
         state = "unknown"
-    return {"status": state, "runStatus": run_status, "healthStatus": text(mapping(output.get("health")).get("status")),
+    reported_rows = count(output_hotel.get("reviewsOutput"))
+    local_count = None if local_rows is None else len(local_rows)
+    completeness = "not_exported" if local_count is None else "unknown"
+    if local_count is not None and reported_rows is not None:
+        completeness = "matched" if local_count == reported_rows else "incomplete" if local_count < reported_rows else "count_mismatch"
+        if completeness != "matched" and state not in {"failed", "partial", "limited"}:
+            state = "incomplete_export" if completeness == "incomplete" else "inconsistent_export"
+    return {"status": state, "runStatus": run_status, "platformStatus": platform_status, "outputStatus": output_status,
+            "datasetCompleteness": completeness, "localDatasetRows": local_count,
+            "healthStatus": text(mapping(output.get("health")).get("status")),
             "mode": mode, "maxReviewsPerHotel": limit, "sort": text(input_data.get("sort")),
             "cutoffDate": config.get("cutoffDate") or input_data.get("cutoffDate"),
             "stopReason": text(output_hotel.get("stoppedBecause")), "pagesFetched": count(output_hotel.get("pagesFetched")),
             "sourceReportedReviewCount": count(output_hotel.get("totalAvailable")),
             "publicIndexedReviewCount": count(output_hotel.get("indexedReviewsCount")),
-            "reportedRowsOutput": count(output_hotel.get("reviewsOutput")),
+            "reportedRowsOutput": reported_rows,
             "completeSourceHistory": False}
 
 
 def build_report(manifest, root=Path("."), generated_at=None):
     if not isinstance(manifest, dict) or not isinstance(manifest.get("runs"), list) or not manifest["runs"]:
         raise ValueError("Manifest requires at least one run.")
+    if generated_at is not None and not timestamp(generated_at):
+        raise ValueError("generatedAt must be a valid report timestamp.")
     hotels = {}
     run_records, global_warnings, all_reviews = [], [], set()
     unidentified_rows = total_duplicate_rows = 0
@@ -241,9 +258,21 @@ def build_report(manifest, root=Path("."), generated_at=None):
         output = mapping(documents.get("outputFile"))
         report = mapping(documents.get("reportFile"))
         input_data = mapping(documents.get("inputFile"))
-        observed = run.get("observedAt") or output.get("finishedAt") or report.get("generatedAt")
+        # Manifest dates must not relabel an older collection as new evidence.
+        observed = output.get("finishedAt") or report.get("generatedAt") or run.get("observedAt")
         if not timestamp(observed):
             raise ValueError("Run %s requires a valid observedAt or output/report timestamp." % run_id)
+        if run.get("observedAt") is not None and not timestamp(run["observedAt"]):
+            raise ValueError("Run %s requires a valid observedAt." % run_id)
+        if output.get("startedAt") is not None:
+            started = timestamp(output["startedAt"])
+            if not started or started > timestamp(observed):
+                raise ValueError("Run %s has invalid output collection chronology." % run_id)
+        for document in (output, report):
+            if document.get("runId") is not None and document["runId"] != run_id:
+                raise ValueError("Output/report runId conflicts with manifest runId.")
+        if timestamp(run.get("observedAt")) and abs((timestamp(run["observedAt"]) - timestamp(observed)).total_seconds()) > 5:
+            global_warnings.append("Run %s manifest observedAt differs from the export; the export collection timestamp takes precedence." % run_id)
         grouped = defaultdict(list)
         rows = dataset_rows(documents["datasetFile"]) if "datasetFile" in documents else None
         for row in rows or []:
@@ -258,14 +287,17 @@ def build_report(manifest, root=Path("."), generated_at=None):
             for item in values or []:
                 if not isinstance(item, dict) or not hotel_id(item):
                     raise ValueError("Every hotel summary requires an identity.")
+                if hotel_id(item) in target:
+                    raise ValueError("Duplicate hotel identities in a run summary are ambiguous.")
                 target[hotel_id(item)] = item
         ids = sorted(set(grouped) | set(output_hotels) | set(report_hotels) | set(expected_hotels))
         record = {"runId": run_id, "buildNumber": text(run.get("buildNumber")), "observedAt": observed,
                   "evidenceUrl": safe_url(run.get("evidenceUrl")) or "https://console.apify.com/actors/runs/" + run_id,
-                  "files": provenance, "hotelCount": len(ids), "platformStatus": text(output.get("status")) or text(run.get("platformStatus")) or "unknown"}
+                  "files": provenance, "hotelCount": len(ids), "platformStatus": text(run.get("platformStatus")) or "unknown",
+                  "outputStatus": text(output.get("status")) or "unknown"}
         run_records.append(record)
         if not ids:
-            global_warnings.append("Run %s contains no attributable hotel data; its status is %s." % (run_id, record["platformStatus"]))
+            global_warnings.append("Run %s contains no attributable hotel data; platform status is %s and OUTPUT status is %s." % (run_id, record["platformStatus"], record["outputStatus"]))
         for identity in ids:
             actual_rows = grouped.get(identity, []) if rows is not None else None
             output_hotel, report_hotel, expected = output_hotels.get(identity, {}), report_hotels.get(identity, {}), expected_hotels.get(identity, {})
@@ -274,9 +306,16 @@ def build_report(manifest, root=Path("."), generated_at=None):
             name = text(output_hotel.get("hotelName")) or text(first_row.get("hotelName")) or text(report_hotel.get("hotelName")) or text(expected.get("hotelName")) or identity
             warnings = []
             summary = sample_summary(actual_rows, report_hotel, warnings)
-            state = collection(output, output_hotel, source_url, run, input_data)
-            if state["status"] in ("failed", "partial", "limited", "completed_in_partial_run", "unknown"):
+            future_rows = sum(timestamp(row.get("entryDate")) > timestamp(observed) for row in actual_rows or [] if timestamp(row.get("entryDate")))
+            if future_rows:
+                warnings.append("%d review entry dates are after the collection timestamp; these inconsistent dates do not prove later collection." % future_rows)
+            state = collection(output, output_hotel, source_url, run, input_data, actual_rows)
+            if state["status"] in ("failed", "partial", "limited", "completed_in_partial_run", "unknown", "incomplete_export", "inconsistent_export"):
                 warnings.append("Collection status is %s; retained rows do not prove complete collection." % state["status"])
+            if state["datasetCompleteness"] in ("incomplete", "count_mismatch"):
+                warnings.append("Local export contains %d rows; OUTPUT reports %d. Dataset coverage is %s." % (state["localDatasetRows"], state["reportedRowsOutput"], state["datasetCompleteness"]))
+            if state["platformStatus"] and state["outputStatus"] and state["platformStatus"] != state["outputStatus"]:
+                warnings.append("Platform and OUTPUT statuses conflict; a failed platform run is not treated as completed.")
             if state["healthStatus"] not in (None, "healthy"):
                 warnings.append("Actor health status is %s." % state["healthStatus"])
             if state["reportedRowsOutput"] is not None and summary["reviewCount"] is not None and state["reportedRowsOutput"] != summary["reviewCount"]:
@@ -377,7 +416,7 @@ def render_html(report):
         cards.append('<article class="hotel"><div class="hotel-head"><span class="hotel-index">%02d</span><div><p class="eyebrow">%s collection observations</p><h2>%s</h2><p class="meta">Hotel ID: %s</p></div></div>%s</article>' % (len(cards) + 1, len(observations), esc(hotel["hotelName"]), esc(hotel["hotelId"]), ''.join(observations)))
     caveats = ''.join('<li>%s</li>' % esc(item) for item in report["caveats"])
     global_warnings = ''.join('<li>%s</li>' % esc(item) for item in report["warnings"])
-    runs = ''.join('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>' % (link(run["evidenceUrl"], run["runId"]), esc(run["observedAt"]), esc(run["platformStatus"]), '<br>'.join(esc(Path(item["file"]).name) + '<br><small class="hash">SHA-256 ' + esc(item["sha256"]) + '</small>' for item in run["files"].values())) for run in report["runs"])
+    runs = ''.join('<tr><td>%s</td><td>%s</td><td>%s<br><small>OUTPUT %s</small></td><td>%s</td></tr>' % (link(run["evidenceUrl"], run["runId"]), esc(run["observedAt"]), esc(run["platformStatus"]), esc(run.get("outputStatus") or "unknown"), '<br>'.join(esc(Path(item["file"]).name) + '<br><small class="hash">SHA-256 ' + esc(item["sha256"]) + '</small>' for item in run["files"].values())) for run in report["runs"])
     summary = "%d hotel(s), %d collection observation(s), %d identified unique sampled review(s)." % (p["hotelCount"], p["observationCount"], p["identifiedUniqueReviewCount"])
     if p["repeatedIdentifiedReviewsAcrossRuns"]:
         summary += " %d review appearances repeat across runs and are counted once in the portfolio total." % p["repeatedIdentifiedReviewsAcrossRuns"]

@@ -1,7 +1,7 @@
 {
   "version": "holidaycheck-client-report-v1",
   "title": "Two-hotel management briefing | 30 September 2026",
-  "generatedAt": "2026-09-30T21:20:02.137475+00:00",
+  "generatedAt": "2026-10-02T08:05:15.932475+00:00",
   "observationsPeriod": {
     "from": "2026-09-30T14:30:32.258Z",
     "to": "2026-09-30T21:09:20.514Z"
@@ -33,6 +33,10 @@
           "collection": {
             "status": "completed_capped",
             "runStatus": "SUCCEEDED",
+            "platformStatus": null,
+            "outputStatus": "SUCCEEDED",
+            "datasetCompleteness": "matched",
+            "localDatasetRows": 20,
             "healthStatus": "healthy",
             "mode": "limit",
             "maxReviewsPerHotel": 20,
@@ -274,6 +278,10 @@
           "collection": {
             "status": "completed_capped",
             "runStatus": "SUCCEEDED",
+            "platformStatus": null,
+            "outputStatus": "SUCCEEDED",
+            "datasetCompleteness": "matched",
+            "localDatasetRows": 20,
             "healthStatus": "healthy",
             "mode": "limit",
             "maxReviewsPerHotel": 20,
@@ -528,7 +536,8 @@
         }
       },
       "hotelCount": 1,
-      "platformStatus": "SUCCEEDED"
+      "platformStatus": "unknown",
+      "outputStatus": "SUCCEEDED"
     },
     {
       "runId": "TdTIIjrMV52Bav9I0",
@@ -550,7 +559,8 @@
         }
       },
       "hotelCount": 1,
-      "platformStatus": "SUCCEEDED"
+      "platformStatus": "unknown",
+      "outputStatus": "SUCCEEDED"
     }
   ],
   "warnings": [],
@@ -561,6 +571,7 @@
     "Aspect scores are deterministic source signals on -1 to +1, not independent sentiment judgments.",
     "Source verified-reservation flags are not independent verification of a stay.",
     "Competitor candidate counts do not prove reviews were collected for those hotels.",
-    "Full review text, reviewer identities and source quotations are excluded from this client report."
+    "Full review text, reviewer identities and source quotations are excluded from this client report.",
+    "Local file hashes identify saved exports; manifest run labels alone do not authenticate their cloud origin."
   ]
 }

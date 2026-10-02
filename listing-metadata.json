@@ -8,14 +8,43 @@
   "isPublic": true,
   "url": "https://apify.com/kamerozkan/holidaycheck-review-intelligence",
   "checkedAt": "2026-09-30",
-  "changeScope": "listing metadata and sample documentation only",
+  "changeScope": "Offline consumer helper, behavioral tests and sample documentation; listing fields retain September 30 observations",
   "runtimeChanged": false,
   "schemasChanged": false,
-  "examplesRegenerated": false,
+  "examplesRegenerated": true,
   "sampleWorkflow": {
     "name": "two-hotel-client-portfolio",
     "entrypoint": "build_client_report.py",
     "evidence": "workflow-release-2026-09-30.json",
     "publicTask": "https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-two-hotel-review-portfolio-report"
-  }
+  },
+  "consumerDeepQa": {
+    "addedOn": "2026-10-02",
+    "helper": "build_client_report.py",
+    "proof": "qa-verification-2026-10-02.json",
+    "localTestsPassed": 33,
+    "fixes": [
+      "Reject conflicting hotel and run identities",
+      "Label partial and oversized local exports explicitly",
+      "Keep platform failure distinct from successful OUTPUT",
+      "Use actual export timestamps and expose timestamp conflicts",
+      "Keep original collection dates in rebuilt client samples"
+    ],
+    "mode": "offline saved-export validation",
+    "actorRuntimeChanged": false,
+    "actorPricingChanged": false,
+    "freshSourceAccessVerified": false,
+    "customerImpactVerified": false
+  },
+  "sampleUpdatedOn": "2026-10-02",
+  "clientArtifactsRebuilt": {
+    "date": "2026-10-02",
+    "collectionDatesUnchanged": true,
+    "freshCloudRun": false,
+    "files": {
+      "client-report-sample/report.json": "6fad8e453f30fe576d0680e631c81fd0c1cb0531a3a5c5fa80485c462dedd12c",
+      "client-report-sample/report.html": "f44f37fe09bc67335e8b88feff7a31587554aa5a040c8ca5be60c0a7aeaba0ad"
+    }
+  },
+  "actorRunExamplesRegenerated": false
 }
