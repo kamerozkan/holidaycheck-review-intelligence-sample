@@ -27,13 +27,13 @@ The redacted review outputs below retain their original July 28 provenance from 
 
 [Start the capped two-hotel Task](https://apify.com/kamerozkan/holidaycheck-review-intelligence/examples/create-a-two-hotel-review-portfolio-report), then export its data for the local builder below. The README-only release `0.4.18` produced 40 unique reviews across two hotels, with healthy collection and one delivered German management report. [Release evidence](workflow-release-2026-09-30.json). This is an owner test, not customer revenue.
 
-The local [Python report builder](build_client_report.py) combines exported Actor datasets, `OUTPUT` records and optional `MANAGEMENT_REPORT` JSON records into one readable HTML briefing and a separate client-report JSON contract. It uses Python 3.9 or later with the standard library, reads local files and makes no network requests. It does not start an Actor or incur platform or AI charges.
+The local [Python report builder](build_client_report.py) combines exported Actor datasets, `OUTPUT` records and optional `MANAGEMENT_REPORT` JSON records into one readable HTML briefing and a separate client-report JSON contract. It uses Python 3.9 or later with the standard library, reads local files and makes no network requests. It does not start an Actor or incur platform or AI charges. Both files are published together into a new output directory; an existing destination is refused, preserving earlier reports.
 
 [Open the dated two-hotel HTML sample](client-report-sample/report.html) or inspect its [client-report JSON](client-report-sample/report.json) and [manifest](client-report-sample/manifest.json).
 
 The sample contains **two distinct hotels and 40 identified unique reviews**, 20 per hotel. Dana Beach was observed at `2026-09-30T14:30:32.258Z` in run `7hddO24Xna0Mt0E32`, build `0.4.16`. Desert Rose was observed at `2026-09-30T21:09:20.514Z` in run `TdTIIjrMV52Bav9I0`, build `0.4.17`. Both runs had healthy collection, stopped at the 20-review limit and did not use AI or live prices. Their review-entry date windows differ: September 24-30 and September 28-30. The sample is historical owner verification, not a current customer report or a like-for-like hotel ranking.
 
-From this repository directory, reproduce the report:
+From this repository directory, reproduce the report into a directory that does not already exist:
 
 ```bash
 python3 build_client_report.py client-report-sample/manifest.json --output-dir client-report
@@ -42,11 +42,13 @@ python3 -m unittest discover -s tests -v
 
 Open `client-report/report.html` as a local document, or use `client-report/report.json` in your reporting system. The HTML is self-contained and does not load third-party scripts, fonts or images.
 
+For a later briefing, choose a fresh directory such as `--output-dir client-report-second-observation`. Keep your previous report rather than reusing its directory. An existing directory, file, symlink or symlink ancestor stops publication. Use paths without `..` components.
+
 For your own portfolio:
 
 1. Collect only the hotels you need, with a result cap and a spending cap. Export each run's dataset as JSON and its key-value-store `OUTPUT`; optionally export `MANAGEMENT_REPORT` and the actual input.
 2. Put those files in a local working directory outside this public sample repository. Create a manifest with one entry per run. File references are relative to the manifest's directory.
-3. Run the builder with that manifest and an output directory. Check each hotel's collection status, timestamp, entry-date window, cap and coverage before sharing the briefing.
+3. Run the builder with that manifest and a fresh output directory, preferably outside Git for private client work. For example: `python3 build_client_report.py /YOUR_PRIVATE_EXPORTS/manifest.json --output-dir "$HOME/.apify/reports/holidaycheck/briefing-2026-10-04"`. That date identifies your briefing directory; it does not replace the original collection dates. Check each hotel's collection status, timestamp, entry-date window, cap and coverage before sharing the briefing.
 
 ```json
 {
@@ -80,6 +82,16 @@ The local builder now rejects conflicting hotel or run identities and labels mis
 A failed platform run stays failed in both the JSON and HTML provenance; OUTPUT status is shown separately. If platform metadata is absent, its status is `unknown`. Exported collection timestamps take precedence over a conflicting manifest date, which produces a warning. Report generation time does not refresh the age of collected reviews.
 
 All **33 regression tests** passed, followed by independent probes and replays of the existing September 30 two-hotel exports. The bundled JSON/HTML sample was rebuilt locally with the original collection dates and still contains two hotels and 40 identified unique reviews. It is historical owner evidence, not a fresh scrape or a customer report. [Dated integrity proof](qa-verification-2026-10-02.json).
+
+## Keep each client report as a complete bundle
+
+The October 4 local fix addresses two reproduced publication failures: rebuilding into the same directory could silently overwrite an earlier briefing, and a failed HTML write could leave newly written JSON without its matching HTML. The builder now renders both artifacts first, writes and fsyncs them inside one private sibling staging directory, then publishes the whole directory with a native atomic no-overwrite rename. Existing destinations are preserved, including empty directories created just before commit. Write or commit errors remove the temporary bundle without publishing a partial final directory.
+
+On POSIX, new report directories use owner-only permissions (`700`) and the two files use `600`. Newly created parent directories request `700`; existing parent permissions are unchanged. Windows mode values do not establish a private ACL. Keep private output outside public repositories and check its access permissions. The builder does not encrypt files or install backups. Filesystem or process crashes may leave unpublished staging; successful fsync calls do not prove power-loss durability for every filesystem.
+
+This path was runtime-verified on macOS only. The implementation also uses Linux `renameat2` with `RENAME_NOREPLACE` when available and Windows' no-overwrite `os.rename`; those branches were not runtime-tested in this verification. Unsupported atomic operations fail closed. Symlink and path checks are repeated before commit; the output parent must remain under your control throughout the operation.
+
+All **52 local tests** passed, including the original 33 report tests and 19 publication regressions. Tests used temporary directories and existing dated exports, with no network requests or Actor runs. The redacted bundled sample was not regenerated: its source dates, JSON contract and HTML content remain unchanged. This fix preserves an agency's historical deliverables; customer uptake or financial impact has not been measured. [Publication proof and limits](publication-verification-2026-10-04.json).
 
 ## Public Store examples
 

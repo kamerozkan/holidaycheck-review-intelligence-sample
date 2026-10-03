@@ -1,0 +1,120 @@
+{
+  "verificationDate": "2026-10-04",
+  "verifiedAt": "2026-10-03T22:22:02.978458+00:00",
+  "scope": "offline local client-report bundle publication; no deployed Actor changes",
+  "baselineCommit": "5c67718130a8d37fcc82144dc6020a2f81e1d47e",
+  "baselineBuilderSha256": "2dab3af61ab5f10994cec5e021b251fe9d8c583252d23a809e72e2b33e832eaa",
+  "beforeEvidence": {
+    "sourceLines": "baseline build_client_report.py445-447: mkdir(exist_ok=True), JSON write, HTML write",
+    "sameDestinationRepeat": {
+      "fixture": "public dated September30 two-hotel manifest, temporary directory only",
+      "exitCode": 0,
+      "historicalJsonRetained": false,
+      "historicalHtmlRetained": false
+    },
+    "htmlPathIsDirectory": {
+      "fixture": "existing destination with report.html directory, temporary directory only",
+      "exitCode": 2,
+      "newJsonWritten": true,
+      "matchingHtmlWritten": false
+    }
+  },
+  "validation": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "testsPassed": 52,
+    "originalReportTestsPassed": 33,
+    "publicationTestsPassed": 19,
+    "failures": 0,
+    "networkRequests": 0,
+    "newCloudRuns": 0,
+    "coverage": [
+      "existing files and nonempty/empty directory preservation",
+      "existing and dangling destination symlinks",
+      "symlink and non-directory ancestors",
+      "second write, fsync and commit failure cleanup",
+      "native empty-target creation race",
+      "renderer failure before I/O",
+      "unsupported platform fail closed",
+      "Unicode path publication",
+      "parent traversal rejection",
+      "complete two-hotel40-review bundle and fixed-clock byte parity",
+      "owner-only POSIX file/directory permissions",
+      "no visible final directory until both artifacts ready",
+      "CLI refusal with original bundle preserved"
+    ],
+    "runtime": {
+      "python": "3.9.6",
+      "platform": "darwin",
+      "macOS": "26.6.2"
+    },
+    "runtimeVerifiedPlatforms": [
+      "macOS"
+    ],
+    "linuxAndWindowsRuntimeTested": false,
+    "independentReview": {
+      "result": "PASS",
+      "focusedProbesPassed": 16,
+      "reviewedSourceSha256": "f533be56f144d860304aa48f995c25030a9da0e5f84552639640ceae006c2a20",
+      "existingSuiteRepeated": false,
+      "fixedClockJsonAndHtmlBytesIdenticalToBaseline": true,
+      "observationAndReviewPeriodsUnchanged": true,
+      "publicRepositoryEditedByReviewer": false
+    },
+    "rootCliAcceptance": {
+      "healthyCliExitCode": 0,
+      "repeatCliExitCode": 2,
+      "existingBundlePreserved": true,
+      "hotelCount": 2,
+      "identifiedUniqueReviewCount": 40,
+      "observationsPeriodUnchanged": true,
+      "networkRequests": 0,
+      "newActorRuns": 0,
+      "sourceHistoricalOwnerSample": true,
+      "customerAdoptionVerified": false
+    }
+  },
+  "sourceHashes": {
+    "build_client_report.py": "f533be56f144d860304aa48f995c25030a9da0e5f84552639640ceae006c2a20",
+    "tests/test_client_report.py": "bdaa33a49cacd57db9b8096964f7a7202e7cca23e3406b2cf622e199126cf948",
+    "tests/test_report_publication.py": "15b56f064cf26736f8afb0affd7c43a4bba012583a8a6ce1d3334b9f2e933575",
+    "README.md": "47531e40224a9d727d6dae76dcd146870032c364d039442daf5c3411dda6e2e1",
+    "DATA_NOTICE.md": "97bb92561477e492a7062cd04b6b9f38bde0ed321af63595b3aad01daafcdffa",
+    "listing-metadata.json": "e141daf6e3524334483f27ec811db1cede9cdc334cbbf9bea6bbb381a2ff20e3"
+  },
+  "bundledSourceAndReportArtifacts": {
+    "client-report-sample/report.json": {
+      "sha256": "6fad8e453f30fe576d0680e631c81fd0c1cb0531a3a5c5fa80485c462dedd12c",
+      "unchangedFromBase": true
+    },
+    "client-report-sample/report.html": {
+      "sha256": "f44f37fe09bc67335e8b88feff7a31587554aa5a040c8ca5be60c0a7aeaba0ad",
+      "unchangedFromBase": true
+    },
+    "client-report-sample/manifest.json": {
+      "sha256": "54fa31c48098713531bc16676e9f063e8523fb312163368603a7a7358674a3e6",
+      "unchangedFromBase": true
+    }
+  },
+  "reportContractChanged": false,
+  "rendererContentChanged": false,
+  "collectionDatesChanged": false,
+  "bundledSamplesRegenerated": false,
+  "limitations": [
+    "Source remains the dated September30 owner sample; this is not a fresh scrape or customer report",
+    "Linux and Windows code paths are implemented but were not runtime-tested here",
+    "Unsupported atomic rename operations fail closed; no unsafe POSIX rename fallback",
+    "Symlink checks repeat before commit; output parent must stay under user control",
+    "Caught write/commit failures remove staging; process interruption or filesystem failure may leave unpublished staging",
+    "Files are not encrypted and no backup or external delivery is installed",
+    "Successful file fsync does not prove crash durability on every filesystem",
+    "No customer adoption or financial effect was measured",
+    "POSIX700/600 permissions were checked on macOS; Windows chmod does not establish an equivalent private ACL",
+    "Parent symlink checks are path guards, not a hardened defense against hostile concurrent ancestor-directory writers"
+  ],
+  "actorRuntimeChanged": false,
+  "actorBuildChanged": false,
+  "actorSchemaChanged": false,
+  "actorPricingChanged": false,
+  "customerCampaignSent": false,
+  "gitCommitOrPushByAgent": false
+}

@@ -8,7 +8,7 @@
   "isPublic": true,
   "url": "https://apify.com/kamerozkan/holidaycheck-review-intelligence",
   "checkedAt": "2026-09-30",
-  "changeScope": "Offline consumer helper, behavioral tests and sample documentation; listing fields retain September 30 observations",
+  "changeScope": "Offline consumer report publication, tests and documentation; listing fields retain September 30 observations",
   "runtimeChanged": false,
   "schemasChanged": false,
   "examplesRegenerated": true,
@@ -46,5 +46,34 @@
       "client-report-sample/report.html": "f44f37fe09bc67335e8b88feff7a31587554aa5a040c8ca5be60c0a7aeaba0ad"
     }
   },
-  "actorRunExamplesRegenerated": false
+  "actorRunExamplesRegenerated": false,
+  "consumerPublicationQa": {
+    "addedOn": "2026-10-04",
+    "helper": "build_client_report.py",
+    "proof": "publication-verification-2026-10-04.json",
+    "localTestsPassed": 52,
+    "originalReportTests": 33,
+    "newPublicationTests": 19,
+    "fixes": [
+      "Preserve existing report destinations",
+      "Publish matching HTML and JSON together",
+      "Refuse symlinks and parent traversal",
+      "Clean staging after failed writes or commit",
+      "Keep collection dates and public sample bytes unchanged"
+    ],
+    "mode": "offline local filesystem publication",
+    "runtimeVerifiedPlatforms": [
+      "macOS"
+    ],
+    "implementedButNotRuntimeVerifiedPlatforms": [
+      "Linux with renameat2 RENAME_NOREPLACE",
+      "Windows no-overwrite os.rename"
+    ],
+    "actorRuntimeChanged": false,
+    "actorPricingChanged": false,
+    "freshSourceAccessVerified": false,
+    "customerImpactVerified": false,
+    "bundledClientArtifactsRegenerated": false
+  },
+  "documentationUpdatedOn": "2026-10-04"
 }

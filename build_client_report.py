@@ -6,10 +6,16 @@ The client-report contract is separate from the Actor dataset contract.
 """
 
 import argparse
+import ctypes
+import errno
 import hashlib
 import html
 import json
 import math
+import os
+import shutil
+import sys
+import tempfile
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -433,21 +439,111 @@ def render_html(report):
 %s<section class="panel notes"><h2>Evidence and collection provenance</h2><p class="meta">Collection timestamp is separate from guest review dates. Console run evidence can require account access. File hashes identify the local exports used.</p><div class="table-scroll"><table><thead><tr><th>Run</th><th>Observed at (UTC)</th><th>Run status</th><th>Local evidence files</th></tr></thead><tbody>%s</tbody></table></div></section><section class="panel notes" style="margin-top:22px"><h2>Scope and limitations</h2><ul>%s</ul></section><footer>Independent reporting tool. Not affiliated with HolidayCheck. No AI conclusions, customer identities or full review text are included.</footer></main></body></html>''' % (esc(report["title"]), esc(report["title"]), esc(date_label(report["observationsPeriod"]["from"])), esc(date_label(report["observationsPeriod"]["to"])), esc(date_label(report["generatedAt"])), esc(summary), esc(status_text), '<ul class="warnings">' + global_warnings + '</ul>' if global_warnings else '', ''.join(cards), runs, caveats)
 
 
-def main():
+class PublicationError(ValueError):
+    """No complete report bundle could be published safely."""
+
+
+def checked_destination(destination):
+    expanded = Path(os.path.expanduser(str(destination)))
+    if ".." in expanded.parts:
+        raise PublicationError("Report paths must not contain parent-directory traversal.")
+    path = Path(os.path.abspath(str(expanded)))
+    for current in (path,) + tuple(path.parents):
+        if current.is_symlink():
+            raise PublicationError("Report paths must not contain symlinks.")
+        if current == path and current.exists():
+            raise PublicationError("Report destination already exists; choose a new output directory.")
+        if current.exists() and not current.is_dir():
+            raise PublicationError("Report parent is not a directory.")
+    return path
+
+
+def rename_exclusive(source, destination):
+    # POSIX os.rename can replace an existing empty directory. These native
+    # exclusive primitives follow the completed Hiring exporter's commit logic.
+    if sys.platform == "win32":
+        try:
+            os.rename(source, destination)  # Windows refuses any existing destination.
+            return
+        except FileExistsError:
+            raise PublicationError("Report destination already exists; choose a new output directory.") from None
+        except OSError:
+            raise PublicationError("Atomic report publication failed; no destination replaced.") from None
+    library = ctypes.CDLL(None, use_errno=True)
+    if sys.platform == "darwin" and hasattr(library, "renamex_np"):
+        operation = library.renamex_np
+        operation.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_uint]
+        operation.restype = ctypes.c_int
+        result = operation(os.fsencode(source), os.fsencode(destination), 0x00000004)
+    elif sys.platform.startswith("linux") and hasattr(library, "renameat2"):
+        operation = library.renameat2
+        operation.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint]
+        operation.restype = ctypes.c_int
+        result = operation(-100, os.fsencode(source), -100, os.fsencode(destination), 1)
+    else:
+        raise PublicationError("Atomic no-overwrite publication is unavailable on this platform.")
+    if result != 0:
+        if ctypes.get_errno() in (errno.EEXIST, errno.ENOTEMPTY):
+            raise PublicationError("Report destination already exists; choose a new output directory.")
+        raise PublicationError("Atomic report publication is unavailable or failed; no destination replaced.")
+
+
+def write_artifact(path, data):
+    descriptor = os.open(str(path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(descriptor, "wb") as handle:
+        os.chmod(str(path), 0o600)
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def publish_report(report, output_dir):
+    # Render both artifacts before creating any output path. A renderer or JSON
+    # failure cannot leave a one-sided report in the final directory.
+    artifacts = {
+        "report.json": (json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8"),
+        "report.html": (render_html(report) + "\n").encode("utf-8"),
+    }
+    destination = checked_destination(output_dir)
+    for parent in reversed(tuple(destination.parents)):
+        if not parent.exists():
+            try:
+                parent.mkdir(mode=0o700)
+            except OSError:
+                raise PublicationError("Could not create a private report parent.") from None
+    checked_destination(destination)
+    staging = Path(tempfile.mkdtemp(prefix="." + destination.name + "-staging-", dir=str(destination.parent)))
+    try:
+        os.chmod(str(staging), 0o700)
+        for name, data in artifacts.items():
+            write_artifact(staging / name, data)
+        checked_destination(destination)
+        rename_exclusive(staging, destination)
+        return destination
+    except PublicationError:
+        raise
+    except OSError:
+        raise PublicationError("Report write failed; no report bundle published.") from None
+    finally:
+        if staging.exists():
+            try:
+                shutil.rmtree(str(staging))
+            except OSError:
+                raise PublicationError("Temporary report cleanup failed; no report bundle published.") from None
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("manifest", type=Path, help="Local JSON manifest; file references are relative to its directory")
     parser.add_argument("--output-dir", type=Path, default=Path("client-report"))
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     try:
         manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
         report = build_report(manifest, args.manifest.resolve().parent)
-        page = render_html(report)
-        args.output_dir.mkdir(parents=True, exist_ok=True)
-        (args.output_dir / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-        (args.output_dir / "report.html").write_text(page + "\n", encoding="utf-8")
+        destination = publish_report(report, args.output_dir)
     except (ValueError, OSError, TypeError) as error:
         parser.exit(2, "Report not built: %s\n" % error)
-    print("Built %d hotel(s), %d identified unique sampled review(s).\n%s\n%s" % (report["portfolio"]["hotelCount"], report["portfolio"]["identifiedUniqueReviewCount"], args.output_dir / "report.html", args.output_dir / "report.json"))
+    print("Built %d hotel(s), %d identified unique sampled review(s).\n%s\n%s" % (report["portfolio"]["hotelCount"], report["portfolio"]["identifiedUniqueReviewCount"], destination / "report.html", destination / "report.json"))
 
 
 if __name__ == "__main__":
