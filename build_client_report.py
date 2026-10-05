@@ -13,11 +13,12 @@ import html
 import json
 import math
 import os
+import re
 import shutil
 import sys
 import tempfile
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -38,6 +39,65 @@ CAVEATS = [
     "Full review text, reviewer identities and source quotations are excluded from this client report.",
     "Local file hashes identify saved exports; manifest run labels alone do not authenticate their cloud origin.",
 ]
+ACTOR_ID = "3ucO50v8A4Gju4EdT"
+TERMINAL_STATUSES = {"SUCCEEDED", "FAILED", "TIMED-OUT", "ABORTED"}
+
+
+def cloud_timestamp(value):
+    """Require a timezone-bearing timestamp for a saved cloud run."""
+    if not isinstance(value, str) or "T" not in value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return parsed.astimezone(timezone.utc) if parsed.tzinfo is not None else None
+    except (ValueError, OverflowError):
+        return None
+
+
+def saved_run_metadata(document, manifest_run, output):
+    """Validate a local run export and return only safe provenance fields."""
+    if not isinstance(document, dict):
+        raise ValueError("runFile must contain an Apify run object or data envelope.")
+    if "data" in document:
+        if not isinstance(document["data"], dict) or any(key in document for key in
+                ("id", "actId", "status", "startedAt", "finishedAt", "buildId", "buildNumber")):
+            raise ValueError("runFile contains an invalid or ambiguous data envelope.")
+        document = document["data"]
+    run_id = document.get("id")
+    if not isinstance(run_id, str) or not re.fullmatch(r"[A-Za-z0-9]{17}", run_id) or run_id != manifest_run["runId"]:
+        raise ValueError("runFile id must match the manifest's actual Apify runId.")
+    if document.get("actId") != ACTOR_ID:
+        raise ValueError("runFile must belong to the HolidayCheck Actor.")
+    status = document.get("status")
+    if not isinstance(status, str) or status not in TERMINAL_STATUSES:
+        raise ValueError("runFile must describe a terminal Apify run.")
+    if manifest_run.get("platformStatus") is not None and manifest_run["platformStatus"] != status:
+        raise ValueError("Manifest platformStatus conflicts with runFile status.")
+    started, finished = cloud_timestamp(document.get("startedAt")), cloud_timestamp(document.get("finishedAt"))
+    if started is None or finished is None or started > finished:
+        raise ValueError("runFile requires valid timezone-bearing start and finish timestamps in order.")
+    safe = {"id": run_id, "actId": ACTOR_ID, "status": status,
+            "startedAt": document["startedAt"], "finishedAt": document["finishedAt"]}
+    for key, pattern in (("buildId", r"[A-Za-z0-9]{17}"), ("buildNumber", r"[0-9]+\.[0-9]+\.[0-9]+")):
+        actual = document.get(key)
+        if actual is not None:
+            if not isinstance(actual, str) or not re.fullmatch(pattern, actual):
+                raise ValueError("runFile %s is invalid." % key)
+            safe[key] = actual
+        for asserted in (manifest_run, output):
+            if asserted.get(key) is not None and asserted[key] != actual:
+                raise ValueError("Manifest/OUTPUT %s conflicts with or is absent from runFile." % key)
+    for key in ("startedAt", "finishedAt"):
+        if output.get(key) is not None:
+            value = cloud_timestamp(output[key])
+            # OUTPUT can be finalized well before the platform run ends. There
+            # is no maximum finish lag; only the saved run's interval is checked.
+            if value is None or value - started < -timedelta(seconds=5) or value - finished > timedelta(seconds=5):
+                raise ValueError("OUTPUT %s is outside runFile's collection interval." % key)
+    if output.get("startedAt") is not None and output.get("finishedAt") is not None:
+        if cloud_timestamp(output["startedAt"]) > cloud_timestamp(output["finishedAt"]):
+            raise ValueError("OUTPUT collection timestamps are reversed.")
+    return safe
 
 
 def number(value, low=None, high=None):
@@ -256,7 +316,7 @@ def build_report(manifest, root=Path("."), generated_at=None):
             raise ValueError("Each runId must occur once in the manifest.")
         seen_runs.add(run_id)
         documents, provenance = {}, {}
-        for key in ("datasetFile", "outputFile", "reportFile", "inputFile"):
+        for key in ("datasetFile", "outputFile", "reportFile", "inputFile", "runFile"):
             if run.get(key) is not None:
                 documents[key], provenance[key] = read_file(Path(root), run[key])
         if not any(key in documents for key in ("datasetFile", "outputFile", "reportFile")):
@@ -264,8 +324,13 @@ def build_report(manifest, root=Path("."), generated_at=None):
         output = mapping(documents.get("outputFile"))
         report = mapping(documents.get("reportFile"))
         input_data = mapping(documents.get("inputFile"))
+        platform_run = saved_run_metadata(documents["runFile"], run, output) if "runFile" in documents else None
+        if platform_run is not None:
+            run = dict(run, platformStatus=platform_run["status"],
+                       buildNumber=platform_run.get("buildNumber"))
         # Manifest dates must not relabel an older collection as new evidence.
-        observed = output.get("finishedAt") or report.get("generatedAt") or run.get("observedAt")
+        observed = (output.get("finishedAt") or platform_run["finishedAt"]) if platform_run is not None else \
+            output.get("finishedAt") or report.get("generatedAt") or run.get("observedAt")
         if not timestamp(observed):
             raise ValueError("Run %s requires a valid observedAt or output/report timestamp." % run_id)
         if run.get("observedAt") is not None and not timestamp(run["observedAt"]):
@@ -301,6 +366,8 @@ def build_report(manifest, root=Path("."), generated_at=None):
                   "evidenceUrl": safe_url(run.get("evidenceUrl")) or "https://console.apify.com/actors/runs/" + run_id,
                   "files": provenance, "hotelCount": len(ids), "platformStatus": text(run.get("platformStatus")) or "unknown",
                   "outputStatus": text(output.get("status")) or "unknown"}
+        if platform_run is not None:
+            record["platformRun"] = platform_run
         run_records.append(record)
         if not ids:
             global_warnings.append("Run %s contains no attributable hotel data; platform status is %s and OUTPUT status is %s." % (run_id, record["platformStatus"], record["outputStatus"]))

@@ -8,7 +8,7 @@
   "isPublic": true,
   "url": "https://apify.com/kamerozkan/holidaycheck-review-intelligence",
   "checkedAt": "2026-09-30",
-  "changeScope": "Offline consumer report publication, tests and documentation; listing fields retain September 30 observations",
+  "changeScope": "Offline saved platform provenance setup, focused tests and documentation; listing fields retain September 30 observations",
   "runtimeChanged": false,
   "schemasChanged": false,
   "examplesRegenerated": true,
@@ -75,5 +75,42 @@
     "customerImpactVerified": false,
     "bundledClientArtifactsRegenerated": false
   },
-  "documentationUpdatedOn": "2026-10-04"
+  "documentationUpdatedOn": "2026-10-05",
+  "consumerRunMetadataSetup": {
+    "addedOn": "2026-10-05",
+    "helper": "build_client_report.py",
+    "proof": "run-metadata-verification-2026-10-05.json",
+    "focusedNewTestsPassed": 20,
+    "mode": "offline saved-export consistency checks",
+    "supportedManifestField": "runFile",
+    "platformRunProjection": [
+      "id",
+      "actId",
+      "status",
+      "startedAt",
+      "finishedAt",
+      "buildId when present",
+      "buildNumber when present"
+    ],
+    "actorRuntimeChanged": false,
+    "actorPricingChanged": false,
+    "freshSourceAccessVerified": false,
+    "customerImpactVerified": false,
+    "bundledClientArtifactsRegenerated": false,
+    "previousNoRunFileContractPreserved": true,
+    "initialTestsPassed": 18,
+    "additionalBoundaryTestsPassed": 2,
+    "postHardeningTargetedTestsPassed": 3,
+    "oldSuitesRerun": false,
+    "independentReviewGroupsPassed": 11,
+    "datedOwnerAcceptance": {
+      "sourcePeriod": "September30,2026",
+      "sourceRunOwner": true,
+      "hotels": 2,
+      "identifiedUniqueReviews": 40,
+      "sourceCollectionDatesPreserved": true,
+      "newActorRuns": 0,
+      "customerAdoptionObserved": false
+    }
+  }
 }

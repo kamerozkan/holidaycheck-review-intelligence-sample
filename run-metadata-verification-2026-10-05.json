@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-05",
+  "scope": "Optional saved Apify run metadata in local HolidayCheck agency briefing",
+  "previousGap": "Documented own-portfolio setup lacked a supported run export path; runFile was never previously promised",
+  "focusedNewTestsPassed": 20,
+  "olderTestSuitesRerun": false,
+  "networkRequests": 0,
+  "newActorRuns": 0,
+  "newActorBuilds": 0,
+  "messagesSent": 0,
+  "runtimeChanged": false,
+  "pricingChanged": false,
+  "customerFailureObserved": false,
+  "customerAdoptionObserved": false,
+  "revenueEffectMeasured": false,
+  "syntheticTestDataOnly": false,
+  "noRunFileDatedReplay": {
+    "jsonEqualToPreviousHead": true,
+    "htmlEqualToPreviousHead": true,
+    "hotels": 2,
+    "identifiedUniqueReviewCount": 40,
+    "fixedLocalGenerationTime": "2026-10-04T00:00:00Z",
+    "sourceDatesUnchanged": true,
+    "bundledFilesModified": false,
+    "measuredBeforeIsolatedIntervalHardening": true
+  },
+  "validations": [
+    "Actual run id matches manifest",
+    "HolidayCheck Actor id matches",
+    "Terminal status and explicit platformStatus agree",
+    "Build assertions match present exported build identity",
+    "Timezone-bearing start and finish in order",
+    "OUTPUT timestamps inside cloud interval with 5s clock tolerance",
+    "Natural positive platform finish lag allowed",
+    "Saved run finish used when OUTPUT finish missing; report generation is not collection",
+    "Only safe run metadata projection retained; raw private fields omitted",
+    "File hash provenance; no authentication of cloud origin"
+  ],
+  "limits": [
+    "Metadata consistency tests and CLI were offline; two earlier authenticated GET requests read existing September30 owner run metadata. No fresh source request was made.",
+    "Local run files can contain private data and must stay outside public repositories",
+    "Hashes do not authenticate an Apify origin or encrypt local files",
+    "Historical no-runFile timestamp fallback remains unchanged"
+  ],
+  "codeSha256": {
+    "build_client_report.py": "a09e99b6c8e5bdfd6b3fd4e2a2a4a6bc5cdd10c80dcc103e1984e8744ad31005",
+    "tests/test_run_metadata.py": "6425e63355d09f885a99a5fd5d62d0dd9f589b3cc7d949c8d2577f63b7496069"
+  },
+  "validationStages": {
+    "initialFocusedSuite": 18,
+    "postElapsedComparisonHardeningTargetedTests": 3,
+    "newBoundaryTestsInSecondStage": 2,
+    "existingToleranceTestInSecondStage": 1,
+    "otherInitialTestsRerunAfterHardening": false,
+    "old52TestSuitesRerun": false
+  },
+  "intervalHardening": "Elapsed comparisons preserve five-second clock tolerance without overflowing datetime bounds at years0001/9999",
+  "networkRequestsScope": "Focused author tests, independent probes and the local CLI itself",
+  "independentReview": {
+    "status": "PASS",
+    "independentGroupsPassed": 11,
+    "checks": [
+      "Envelope private data excluded by safe projection",
+      "Wrong metadata types and identifiers rejected",
+      "Unverifiable build assertions rejected",
+      "Active and transitioning statuses rejected",
+      "Failure cannot be concealed by manifest success",
+      "Equivalent timestamps across time zones accepted",
+      "Tolerance boundary and reversed chronology rejected",
+      "Extreme valid datetime bounds do not overflow",
+      "No-runFile dated JSON and HTML are unchanged",
+      "All nine public historical fixture hashes preserved",
+      "Dated owner CLI bundle status, dates,40reviews,hashes and private modes"
+    ],
+    "sourceSha256": "a09e99b6c8e5bdfd6b3fd4e2a2a4a6bc5cdd10c80dcc103e1984e8744ad31005",
+    "legacyJsonAndHtmlIdentical": true,
+    "historicalFixtureFilesUnchanged": 9
+  },
+  "datedOwnerAcceptance": {
+    "sourcePeriod": "September30,2026",
+    "sourceRunOwner": true,
+    "buildNumbers": [
+      "0.4.16",
+      "0.4.17"
+    ],
+    "cliExitStatus": 0,
+    "hotels": 2,
+    "identifiedUniqueReviews": 40,
+    "platformStatusCounts": {
+      "SUCCEEDED": 2
+    },
+    "sourceCollectionDatesPreserved": true,
+    "runFileHashesMatched": true,
+    "directoryMode": "0700",
+    "fileMode": "0600",
+    "newActorRuns": 0,
+    "newCloudBuilds": 0,
+    "newSourceCollection": false,
+    "rawMetadataPublished": false,
+    "customerAdoptionObserved": false,
+    "newRevenueAttributed": false,
+    "existingRunMetadataAuthenticatedGetRequests": 2
+  }
+}

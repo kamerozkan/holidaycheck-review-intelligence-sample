@@ -46,7 +46,7 @@ For a later briefing, choose a fresh directory such as `--output-dir client-repo
 
 For your own portfolio:
 
-1. Collect only the hotels you need, with a result cap and a spending cap. Export each run's dataset as JSON and its key-value-store `OUTPUT`; optionally export `MANAGEMENT_REPORT` and the actual input.
+1. Collect only the hotels you need, with a result cap and a spending cap. Export each run's dataset as JSON and its key-value-store `OUTPUT`; optionally export `MANAGEMENT_REPORT` and the actual input. For platform status and build provenance, also save the completed run metadata JSON from your existing Apify export/API workflow.
 2. Put those files in a local working directory outside this public sample repository. Create a manifest with one entry per run. File references are relative to the manifest's directory.
 3. Run the builder with that manifest and a fresh output directory, preferably outside Git for private client work. For example: `python3 build_client_report.py /YOUR_PRIVATE_EXPORTS/manifest.json --output-dir "$HOME/.apify/reports/holidaycheck/briefing-2026-10-04"`. That date identifies your briefing directory; it does not replace the original collection dates. Check each hotel's collection status, timestamp, entry-date window, cap and coverage before sharing the briefing.
 
@@ -58,6 +58,7 @@ For your own portfolio:
       "runId": "YOUR_ACTUAL_RUN_ID",
       "buildNumber": "YOUR_ACTUAL_BUILD_NUMBER",
       "observedAt": "YOUR_ACTUAL_UTC_OBSERVATION_TIMESTAMP",
+      "runFile": "hotel-run.json",
       "datasetFile": "hotel-run-dataset.json",
       "outputFile": "hotel-run-OUTPUT.json",
       "reportFile": "hotel-run-MANAGEMENT_REPORT.json",
@@ -67,7 +68,13 @@ For your own portfolio:
 }
 ```
 
-Each run needs `runId` and at least one of `datasetFile`, `outputFile` or `reportFile`. `buildNumber` and `inputFile` are optional. Supply `observedAt` when the exports do not contain `OUTPUT.finishedAt` or report `generatedAt`; use the actual collection timestamp. Accepted dataset forms are a JSON array, an `items` envelope, a `data.items` envelope or one review record. An optional `expectedHotels` array of `hotelId`, `hotelName` and `sourceUrl` records makes hotels with failed or empty output visible. An optional `evidenceUrl` overrides the Console run link. JSON manifests and exports are data, never executed code.
+Each run needs `runId` and at least one of `datasetFile`, `outputFile` or `reportFile`. `buildNumber` and `inputFile` are optional. Without `runFile`, supply `observedAt` when the exports do not contain `OUTPUT.finishedAt` or report `generatedAt`; use the actual collection timestamp. With `runFile`, the saved run provides the fallback collection time described below. Accepted dataset forms are a JSON array, an `items` envelope, a `data.items` envelope or one review record. An optional `expectedHotels` array of `hotelId`, `hotelName` and `sourceUrl` records makes hotels with failed or empty output visible. An optional `evidenceUrl` overrides the Console run link. JSON manifests and exports are data, never executed code.
+
+`runFile` is optional but recommended for your own briefing. It accepts an actual Apify run object or its API `data` envelope. Retrieve metadata for an existing completed run with authenticated `GET https://api.apify.com/v2/actor-runs/{runId}`; use your existing client's authorization or an Authorization header, never a token in the URL. This GET does not start another Actor. The run must match `runId` and this HolidayCheck Actor, have a terminal status (`SUCCEEDED`, `FAILED`, `TIMED-OUT` or `ABORTED`), and contain timezone-bearing `startedAt` and `finishedAt` in order. `buildId` and `buildNumber` are optional in the export; a build assertion in the manifest or OUTPUT must match a present exported value. Omit the optional manifest build fields when the downloaded metadata cannot verify them. A conflicting manually supplied `platformStatus` is rejected.
+
+With `runFile`, collection time comes from `OUTPUT.finishedAt` when present, otherwise from the actual run's `finishedAt`. OUTPUT timestamps must fall inside the saved run's interval, allowing five seconds of clock tolerance. A run can finish substantially later than OUTPUT; that natural lag is accepted. `MANAGEMENT_REPORT.generatedAt` does not replace the run's collection time. A different manifest `observedAt` produces a warning and does not relabel the collection. Without `runFile`, the existing timestamp fallback and unknown-platform behavior remain, including the historical examples in this repository.
+
+The report retains the run-file hash and only run ID, Actor ID, terminal status, start/finish timestamps and available build identity from this export. Other run fields, including user/account data, options and credentials, are not copied into JSON or HTML. Local exports can still contain private data: store them outside this repository. The builder validates consistency; it does not authenticate the downloaded file's cloud origin or fetch current status.
 
 The briefing separates sampled review ratings on the 1-10 scale from the source hotel's 0-6 aggregate rating and source-reported review count. It shows the number of available ratings and aspect scores, plus the known boolean denominators for recommendations and source verified-reservation flags. Missing values remain unavailable; zero is not substituted for missing data. Individual dataset rows take precedence over a conflicting report aggregate. With only an aggregate report, counts and ratings stay labeled as report aggregates and no review identities or exact denominators are invented.
 
@@ -92,6 +99,12 @@ On POSIX, new report directories use owner-only permissions (`700`) and the two 
 This path was runtime-verified on macOS only. The implementation also uses Linux `renameat2` with `RENAME_NOREPLACE` when available and Windows' no-overwrite `os.rename`; those branches were not runtime-tested in this verification. Unsupported atomic operations fail closed. Symlink and path checks are repeated before commit; the output parent must remain under your control throughout the operation.
 
 All **52 local tests** passed, including the original 33 report tests and 19 publication regressions. Tests used temporary directories and existing dated exports, with no network requests or Actor runs. The redacted bundled sample was not regenerated: its source dates, JSON contract and HTML content remain unchanged. This fix preserves an agency's historical deliverables; customer uptake or financial impact has not been measured. [Publication proof and limits](publication-verification-2026-10-04.json).
+
+## Saved platform provenance setup on October 5, 2026
+
+The optional `runFile` setup adds a supported way to retain actual exported platform status and build identity in a local agency briefing. Previously the documented manifest did not show how to supply platform status; the builder could read a manually entered `platformStatus`, while an exported run file was unsupported. This was a setup gap, not a regression in promised run-file support or an observed customer failure.
+
+Twenty focused new tests passed in an initial 18-test stage and a later three-case targeted pass (two new boundary cases and one existing tolerance case), followed by 11 independent review groups. The earlier 52-test suites were not rerun. A separate local CLI acceptance used two already completed September 30 owner runs, builds `0.4.16` and `0.4.17`, after two authenticated GET requests for their saved metadata: both platform statuses were retained with the original collection dates, two hotels and 40 identified unique reviews. The new report bundle and hashes used private `700`/`600` permissions. The unchanged no-run-file manifest also produced identical JSON and HTML against the previous implementation at the same generation clock; all nine bundled historical files remain unchanged. No fresh source collection, Actor run/build, pricing change or external delivery occurred. This is owner compatibility evidence; customer adoption and revenue effects have not been measured. [Setup verification](run-metadata-verification-2026-10-05.json).
 
 ## Public Store examples
 
